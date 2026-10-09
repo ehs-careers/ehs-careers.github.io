@@ -1,0 +1,31 @@
+# 매달 1일: 공정위 대기업집단 소속회사 명단(data/large_groups.json) 갱신 — 매년 5월 지정, 중간 편입·제외도 반영
+name: groups
+on:
+  schedule:
+    - cron: "0 1 1 * *"   # 매달 1일 KST 10:00
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: collect          # 수집과 겹치지 않게
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 명단 받기
+        run: python tools/build_large_groups.py
+      - name: 바뀌었으면 저장
+        run: |
+          # 집단 수가 크게 줄면(사이트 고장) 저장하지 않는다
+          python -c "import json,sys;d=json.load(open('data/large_groups.json',encoding='utf-8'));sys.exit(0 if d.get('group_count',0)>=60 else 1)"
+          git config user.name "job-radar-bot"
+          git config user.email "job-radar-bot@users.noreply.github.com"
+          git add data/large_groups.json
+          git diff --cached --quiet || git commit -m "대기업집단 명단 갱신 $(date +%Y-%m)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

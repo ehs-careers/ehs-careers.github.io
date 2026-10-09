@@ -1,0 +1,36 @@
+# 공개 저장소에는 수집 코드·규칙·공개 공고 데이터만 올린다. 아래는 이 PC 전용이거나 개인 정보가 있는 것.
+CLAUDE.md
+.claude/
+settings.local.json
+backups/
+pending_web_fix/
+chrome_tab_icon/
+docs/
+feedback/
+README_PC.md
+__pycache__/
+*.pyc
+# PC 전용 실행 파일
+*.bat
+*.ps1
+make_bookmarks.ps1
+chrome_bookmarks_import.html
+# ml 실험 기록(배포에 불필요)
+ml/experiment*.py
+ml/experiment*_result.json
+ml/final_test*
+ml/cv_v3.py
+ml/settings_experiment.json
+# 클라우드 수집 상태 중 매번 바뀌는 부산물
+state/debug/
+state/radar.html
+state/run.lock
+state/log.txt
+state/*.bak*
+# 머리 띠 그림(개인 취향 이미지)
+# 머리 그림(개인 취향 이미지)은 공개하지 않는다 — 각자 브라우저에만(2026-10-09 사용자 요청)
+site/img/
+tools/port_site.py
+# 공고 데이터 평문은 올리지 않는다(암호문 *.enc 만) — 2026-10-08 '링크 받은 사람만' 보기
+state/radar.db
+site/data/jobs.json

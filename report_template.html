@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>환경안전 채용 레이더</title>
+<style>
+:root{--bg:#f3f5f6;--surface:#fff;--fg:#17202a;--muted:#5d6b78;--line:#d9e0e5;--accent:#0e6b62;--accent-soft:#dcefec;--hot:#b4380f;--hot-soft:#fbe6dc;--warn:#8a5b00;--warn-soft:#fbf0d4;--ok:#1d6e3a;
+--sans:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;--mono:Consolas,ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1418;--surface:#172027;--fg:#e4eaee;--muted:#93a2ae;--line:#2a3640;--accent:#4fc1b2;--accent-soft:#16332f;--hot:#ff8a5c;--hot-soft:#3a1f14;--warn:#e8b649;--warn-soft:#33280f;--ok:#6fd08f;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 48px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media(min-width:1000px){.wrap{grid-template-columns:minmax(0,1fr) 360px;align-items:start}.wrap>header{grid-column:1/-1}aside{position:sticky;top:16px}}
+h1{font-size:22px;margin:0}.sub{color:var(--muted);font-size:13px}
+.main,aside{display:flex;flex-direction:column;gap:14px;min-width:0}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.stat b{font-family:var(--mono);font-size:22px;margin-right:6px}.stat span{font-size:12px;color:var(--muted)}
+.tabs,.filters{display:flex;gap:6px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.tab,.chip{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;font-size:13px}
+.tab[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+input[type=search]{flex:1;min-width:160px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:6px 12px}
+.card.pass{opacity:.45}.co{font-weight:700}.sz{font-weight:400;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 5px;margin-left:8px}
+.tier{font-size:11px;font-weight:700;border-radius:4px;padding:0 6px;margin-left:6px}.tier.rec{background:var(--accent-soft);color:var(--accent)}.tier.chk{background:var(--warn-soft);color:var(--warn)}
+.fbbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}.fbbar button{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:4px 10px;font-size:12.5px}
+.quick{display:flex;flex-wrap:wrap;gap:6px}.quick a{font-size:12.5px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 9px;text-decoration:none}.quick a:hover{border-color:var(--accent);color:var(--accent)}.ttl{grid-column:1/-1;font-size:14px}.ttl a{color:var(--fg)}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.snip{grid-column:1/-1;font-size:12px;color:var(--muted);border-left:2px solid var(--line);padding-left:8px;max-height:3.2em;overflow:hidden}
+.dday{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent);align-self:start;white-space:nowrap}
+.dday.hot{background:var(--hot-soft);color:var(--hot)}.dday.gone{background:var(--line);color:var(--muted)}
+.foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:8px;font-size:12px;color:var(--muted)}
+.new{color:var(--hot);font-weight:700}
+.mk{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:2px 9px;font-size:12px}
+.mk[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:28px 16px;text-align:center;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.panel h2{font-size:14px;margin:0 0 4px}.panel p{margin:0;font-size:12.5px;color:var(--muted)}
+.h{display:grid;grid-template-columns:auto 1fr auto;gap:8px;font-size:13px;align-items:center;border-top:1px solid var(--line);padding-top:5px}
+.h a{color:var(--fg);text-decoration:none;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{width:9px;height:9px;border-radius:50%}.dot.ok{background:var(--ok)}.dot.warn{background:var(--warn)}.dot.err{background:var(--hot)}
+.n{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style></head><body>
+<div class="wrap">
+<header><h1>환경안전 채용 레이더 <small style="font-size:13px;font-weight:400">· 내 PC 리포트 · <a href="https://claude.ai/artifact/JkuBVi7sVFqK4Xqj9VeFQG" target="_blank" rel="noopener">웹 레이더 열기</a></small></h1><div class="sub" id="gen"></div></header>
+<div class="main">
+  <div class="stats" id="stats"></div>
+  <nav class="quick" id="quick" aria-label="채용 사이트 바로가기"></nav>
+  <div class="tabs" id="tabs"></div>
+  <div class="filters">
+    <button class="chip" data-f="경력" aria-pressed="true">경력직</button>
+    <button class="chip" data-f="신입" aria-pressed="true">대기업 신입</button>
+    <button class="chip" data-f="hidepass" aria-pressed="true">패스 숨기기</button>
+    <input type="search" id="q" placeholder="회사·공고명 검색">
+  </div>
+  <div class="fbbar"><button id="fb">내 표시를 학습 데이터로 내보내기</button><span id="fbmsg">관심·지원 = 맞는 공고, 패스 = 아닌 공고로 학습합니다. 내보낸 파일은 다운로드 폴더에 두면 다음 실행 때 자동 반영됩니다.</span></div>
+  <div id="list"></div>
+</div>
+<aside>
+  <section class="panel">
+    <h2>사이트별 수집 상태</h2>
+    <p>초록: 정상 · 노랑: 열렸지만 내용이 거의 없음(로그인·차단 의심) · 빨강: 접속 실패. 숫자는 "남은 공고 / 키워드 후보"입니다. 노랑·빨강이 계속되면 그 사이트는 직접 확인하세요.</p>
+    <div id="health"></div>
+  </section>
+</aside>
+</div>
+<script>
+const D=/*__DATA__*/null;
+const $=id=>document.getElementById(id);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let marks={};try{marks=JSON.parse(localStorage.getItem("jr-marks")||"{}")}catch(e){}
+const S={tab:D.new.length?"new":"open",f:{"경력":true,"신입":true,hidepass:true},q:""};
+const isD=s=>/^\d{4}-\d{2}-\d{2}$/.test(s||"");
+const diff=(a,b)=>Math.round((Date.parse(a)-Date.parse(b))/864e5);
+const NEW=new Set(D.new);
+const TABS=[["new","🆕 신규",j=>NEW.has(j.id)&&j.status==="open"],["due","⏰ 마감 3일 이내",j=>j.status==="open"&&isD(j.deadline)&&diff(j.deadline,D.today)<=3],["open","📋 진행 중 전체",j=>j.status==="open"],["int","★ 관심·지원",j=>j.status==="open"&&(marks[j.id]==="관심"||marks[j.id]==="지원")],["closed","마감됨",j=>j.status==="closed"]];
+function vis(j){if(!S.f[j.track==="신입"?"신입":"경력"])return false;if(S.f.hidepass&&marks[j.id]==="패스"&&S.tab!=="int")return false;if(S.q&&!(j.company+" "+j.title).toLowerCase().includes(S.q))return false;return true}
+function render(){
+  $("gen").textContent=`마지막 수집 ${D.generated} · 매일 자동 실행 · 신규 = 레이더가 처음 본 공고`;
+  const st=$("stats");st.replaceChildren();
+  [["new","오늘 신규"],["due","마감 3일 이내"],["open","진행 중"],["int","내 관심"]].forEach(([k,l])=>{const f=TABS.find(x=>x[0]===k)[2];const d=el("div","stat");d.append(el("b",null,D.jobs.filter(f).length),el("span",null,l));st.append(d)});
+  const tb=$("tabs");tb.replaceChildren();
+  TABS.forEach(([k,l,f])=>{const b=el("button","tab",`${l} ${D.jobs.filter(j=>f(j)&&vis(j)).length}`);b.setAttribute("aria-selected",S.tab===k);b.onclick=()=>{S.tab=k;render()};tb.append(b)});
+  document.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",!!S.f[b.dataset.f]));
+  const f=TABS.find(x=>x[0]===S.tab)[2];
+  const dk=j=>isD(j.deadline)?j.deadline:"9";
+  const rows=D.jobs.filter(j=>f(j)&&vis(j)).sort((a,b)=>((a.size_rank||5)-(b.size_rank||5))||((a.tier==="추천"?0:1)-(b.tier==="추천"?0:1))||(a.track===b.track?0:a.track==="신입"?1:-1)||(dk(a)<dk(b)?-1:dk(a)>dk(b)?1:0));
+  const L=$("list");L.replaceChildren();
+  if(!rows.length){L.append(el("div","empty",{new:"오늘 새로 뜬 공고가 없습니다.",due:"3일 안에 마감되는 공고가 없습니다.",open:"진행 중인 공고가 없습니다.",int:"관심·지원으로 표시한 공고가 없습니다.",closed:"마감된 공고가 없습니다."}[S.tab]));}
+  rows.forEach(j=>{
+    const c=el("article","card"+(marks[j.id]==="패스"?" pass":""));
+    const co=el("div","co",j.company);co.append(el("span","sz",j.size||"기타"));if(j.tier)co.append(el("span","tier "+(j.tier==="추천"?"rec":"chk"),j.tier+" "+Math.round((j.rel_score||0)*100)));c.append(co);
+    let dd;if(j.status==="closed")dd=el("span","dday gone","마감");else if(isD(j.deadline)){const n=diff(j.deadline,D.today);dd=el("span","dday"+(n<=3?" hot":""),n===0?"D-day":"D-"+n)}else dd=el("span","dday",j.deadline||"마감 확인 불가");
+    c.append(dd);
+    const t=el("div","ttl");const a=el("a",null,j.title);a.href=j.link;a.target="_blank";a.rel="noopener";t.append(a);c.append(t);
+    const m=el("div","meta");[j.track==="신입"?"신입":"경력 "+j.exp,"등록 "+(j.posted||"확인 불가"),"마감 "+(j.deadline||"확인 불가"),"처음 본 날 "+j.first_seen].forEach(x=>m.append(el("span",null,x)));c.append(m);
+    if(j.snippet)c.append(el("div","snip",j.snippet));
+    const ft=el("div","foot");const lf=el("span",null,"출처: "+j.source+" ");if(NEW.has(j.id))lf.append(el("span","new","NEW"));ft.append(lf);
+    const mk=el("span");["관심","지원","패스"].forEach(k=>{const b=el("button","mk",k);b.setAttribute("aria-pressed",marks[j.id]===k);b.onclick=()=>{if(marks[j.id]===k)delete marks[j.id];else marks[j.id]=k;try{localStorage.setItem("jr-marks",JSON.stringify(marks))}catch(e){}render()};mk.append(b," ")});ft.append(mk);
+    c.append(ft);L.append(c);
+  });
+  const Q=$("quick");Q.replaceChildren();(D.shortcuts||[]).sort((a,b)=>(a.type==="portal"?0:1)-(b.type==="portal"?0:1)).forEach(s=>{const a=el("a",null,(s.type==="portal"?"🏢 ":"🔎 ")+s.name);a.href=s.url;a.target="_blank";a.rel="noopener";Q.append(a)});
+  const H=$("health");H.replaceChildren();
+  [...D.health].sort((a,b)=>(a.ok&&!a.suspicious)-(b.ok&&!b.suspicious)).forEach(h=>{
+    const r=el("div","h");r.append(el("span","dot "+(!h.ok?"err":h.suspicious?"warn":"ok")));
+    const a=el("a",null,h.name);a.href=h.url;a.target="_blank";a.title=h.error||Object.entries(h.dropped||{}).map(([k,v])=>k+" "+v).join(", ");r.append(a);
+    r.append(el("span","n",h.ok?`${h.kept} / ${h.found}`:"실패"));H.append(r);
+  });
+}
+document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{S.f[b.dataset.f]=!S.f[b.dataset.f];render()});
+$("q").oninput=e=>{S.q=e.target.value.trim().toLowerCase();render()};
+$("fb").onclick=()=>{
+  const rows=D.jobs.filter(j=>marks[j.id]).map(j=>({title:j.title,company:j.company,label:marks[j.id]==="패스"?0:1}));
+  if(!rows.length){$("fbmsg").textContent="먼저 공고에 관심·지원·패스를 표시하세요.";return}
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(rows)],{type:"application/json"}));
+  a.download="radar_feedback_"+D.today+".json";document.body.append(a);a.click();a.remove();
+  $("fbmsg").textContent=rows.length+"건을 내보냈습니다. 다음 수집 때 모델이 이 표시로 다시 학습합니다.";
+};
+render();
+</script></body></html>

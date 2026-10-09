@@ -1,0 +1,74 @@
+# 매일 08:50·18:50(한국 시간) 채용 공고 수집 → site/data/jobs.json 갱신 → 웹 페이지(GitHub Pages) 배포.
+# 실패하면 GitHub 이 저장소 주인에게 메일을 보낸다. 수동 실행: Actions 탭 → collect → Run workflow
+name: collect
+on:
+  schedule:
+    - cron: "50 23 * * *"  # UTC 23:50 = KST 08:50 (아침에 올라온 공고를 출근 전에)
+    - cron: "50 9 * * *"   # UTC 09:50 = KST 18:50 (GitHub 사정으로 수십 분 늦을 수 있음)
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: collect
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      JOBRADAR_DATA: state        # radar.db(암호문으로) · company_cache.json 을 저장소에 보관 → 어제 목록과 비교
+      PYTHONIOENCODING: utf-8
+      RADAR_KEY: ${{ secrets.RADAR_KEY }}   # 링크의 #k= 와 같은 열쇠. 저장소에는 암호문만 올라간다
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m playwright install --with-deps chromium
+      - name: 어제 목록 풀기
+        # 풀기 실패(열쇠 틀림)는 여기서 멈춘다 — 빈 목록으로 계속하면 모든 공고가 '신규'가 되고 기록이 사라진다
+        run: |
+          if [ -f state/radar.db.enc ]; then python tools/seal.py dec state/radar.db.enc state/radar.db; else echo "첫 실행: 빈 목록에서 시작"; fi
+      - name: 회귀 테스트
+        run: python tests/run_tests.py
+      - name: 수집
+        run: mkdir -p state && python job_radar.py --no-notify 2>&1 | tee state/log.txt   # 일부 사이트 실패해도 다음 단계 진행
+      - name: 웹 데이터 만들기
+        run: python tools/export_site.py
+      - name: 건강 검진 (이상하면 마지막에 실패 처리 → GitHub 메일)
+        id: health
+        continue-on-error: true
+        run: python tools/health_check.py
+      - name: 잠그기 (공고 데이터는 암호문만 저장·게시)
+        run: |
+          python tools/seal.py enc state/radar.db state/radar.db.enc
+          python tools/seal.py enc site/data/jobs.json site/data/jobs.enc
+          rm -f site/data/jobs.json
+      - name: 결과 저장
+        run: |
+          git config user.name "job-radar-bot"
+          git config user.email "job-radar-bot@users.noreply.github.com"
+          # 없는 파일이 목록에 있으면 git add 전체가 실패해 아무것도 저장되지 않는다 → 있는 것만 더한다
+          for f in state/radar.db.enc state/company_cache.json site/data/jobs.enc site/data/health.json ml/user_labels.json; do [ -e "$f" ] && git add "$f"; done
+          git diff --cached --quiet || git commit -m "수집 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: 건강 검진 결과 알림
+        if: steps.health.outcome == 'failure'
+        run: echo "수집 이상 — 로그의 '건강 검진' 단계를 보세요" && exit 1
+  deploy:
+    needs: collect
+    if: ${{ !cancelled() }}   # 건강 검진 실패여도 모은 데이터는 게시
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
