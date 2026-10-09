@@ -174,8 +174,9 @@ async def fetch_source(ctx, src, pattern, timeout, debug, gsem, host_locks, gap,
             log_source(res, t0)
             return res
         try:
+            # 모음 검색(검색어 14개 × 여러 쪽)은 소스별 timeout_sec 로 더 길게
             await asyncio.wait_for(_fetch_page(ctx, src, pattern, timeout, debug, host in static_hosts, block_re, res),
-                                   timeout=float(run.get("source_timeout", 150)))
+                                   timeout=float(src.get("timeout_sec") or run.get("source_timeout", 150)))
         except asyncio.TimeoutError:
             res.update(ok=False, items=[], error=f"TIMEOUT 사이트당 {run.get('source_timeout', 150)}초 초과")
         if res["error"].startswith("BLOCKED"):
@@ -473,9 +474,17 @@ def norm_co(s):
     return re.sub(r"\(주\)|㈜|주식회사|\s|[()·.,（）]", "", s or "").lower()
 
 
+# 그룹 채용 사이트 본문(직무 목록)에서 볼 '확실한' 환경·안전 직무명 — '친환경 설계' 같은 낱말은 해당 없음
+API_FIELD = re.compile(r"환경\s*안전|안전\s*환경|안전\s*보건|산업\s*안전|공정\s*안전|안전\s*관리|보건\s*관리|환경\s*관리|화학\s*물질\s*관리|EHS|SHE|HSE|PSM")
+
 def judge(src, item, settings, t):
     title, block = item["title"], item["block"]
     from relevance import sections_loose, sections
+    if src.get("type") == "api" and not sections_loose({"title": title, "company": src.get("company", "")}, settings):
+        # 그룹 채용 사이트: '경력사원 상시채용'처럼 제목엔 분야가 없고 직무 목록에만 '환경안전'이 있는 공고 (2026-10-09, OCI 사례)
+        m = API_FIELD.search(block)
+        if m:
+            title = f"{title} ({m.group(0)})"
     if not sections_loose({"title": title, "company": src.get("company", "")}, settings):
         return None, "직무 규칙 불통과"
     why = "" if src["type"] == "api" else not_a_posting(item, src)  # API 목록은 그 자체가 공고 목록
@@ -491,6 +500,8 @@ def judge(src, item, settings, t):
         company = item.get("company") or src.get("company", "")
         if src.get("size_filter") and not (find_company(company, settings) or is_large(company, settings)):
             return None, "중견 이상 목록에 없는 회사"  # 사람인 대기업 필터 같은 모음 검색용
+        if src.get("groups_only") and not large_group_of(company):
+            return None, "대기업집단 계열사 아님"   # 필터 없는 검색: 공정위 명단에 있는 계열사만
     else:
         company = src["company"]
     exp, min_years, newbie_only = parse_exp(block)

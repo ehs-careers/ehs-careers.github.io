@@ -45,8 +45,13 @@ def _profile_ok(name, p, r, s, rank):
     inc, exc = _pre(p, "include"), _pre(p, "exclude")
     if inc and not inc.search(title):
         return False
-    if exc and exc.search(both):
-        return False
+    if exc:
+        text = both
+        rf, ri = _pre(p, "rescue_from"), _pre(p, "rescue_if")
+        if rf and ri and ri.search(title):   # '산업안전&소방안전' 겸직: 소방 때문에 버리지 않는다
+            text = rf.sub(" ", text)
+        if exc.search(text):
+            return False
     gate = _pre(p, "construction")
     if gate and gate.search(both):  # 건설: 대기업 건설사의 본사·사무직만 (현장 채용 제외)
         if rank is not None and rank > int(p.get("construction_max_rank", 2)):

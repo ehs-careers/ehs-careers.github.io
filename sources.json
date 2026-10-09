@@ -3427,7 +3427,8 @@
   "url": "https://www.saramin.co.kr/zf_user/search/recruit",
   "company": "",
   "default_rank": 4,
-  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음"
+  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음",
+  "timeout_sec": 1500
  },
  {
   "name": "사람인 중견 (검색)",
@@ -3436,7 +3437,8 @@
   "url": "https://www.saramin.co.kr/zf_user/search/recruit",
   "company": "",
   "default_rank": 4,
-  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음"
+  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음",
+  "timeout_sec": 1500
  },
  {
   "name": "잡코리아 대기업·공기업·외국계 (검색)",
@@ -3445,7 +3447,8 @@
   "url": "https://www.jobkorea.co.kr/Search/",
   "company": "",
   "default_rank": 4,
-  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음"
+  "note": "기업형태 필터가 걸린 모음 검색 (portals/aggregators.py) — 대기업 공고가 소기업에 묻히지 않음",
+  "timeout_sec": 1500
  },
  {
   "name": "자소설닷컴 (API)",
@@ -3581,5 +3584,16 @@
   "company": "금호석유화학",
   "group": "대기업 계열",
   "note": "그룹 공식 채용 사이트 (portals/groups.py)"
+ },
+ {
+  "name": "사람인 전체 (대기업 계열사 대조)",
+  "type": "api",
+  "adapter": "aggregators:사람인 전체(대기업 계열사 대조)",
+  "url": "https://www.saramin.co.kr/zf_user/search/recruit",
+  "company": "",
+  "groups_only": true,
+  "timeout_sec": 1500,
+  "group": "대기업 계열",
+  "note": "2026-10-09 누락 점검: 작은 계열사는 사람인 '대기업' 필터에 안 걸림 → 필터 없이 검색 후 공정위 계열사만"
  }
 ]

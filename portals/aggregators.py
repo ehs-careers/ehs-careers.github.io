@@ -33,13 +33,14 @@ from html import unescape
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 TIMEOUT = 20
 GAP = 4.5                      # 같은 호스트 요청 간격(초)
-MAX_REQ_PER_HOST = 45          # 사이트당 상한(<50)
+MAX_REQ_PER_HOST = 240         # 사이트당 상한 — 2026-10-09 누락 점검 후 검색어·깊이 확대(요청 간 4.5초 유지, 사람인 ≈ 12분)
 KST = timezone(timedelta(hours=9))
 
 # 재현율 우선의 넓은 직무 그물 (최종 판정은 ml/relevance.py 가 한다)
 EHS_RE = re.compile(r"환경|안전|보건|산업위생|공정안전|PSM|화학물질|화관법|위험물|EHS|HSE|ESH|SHE|HSEQ|온실가스|대기|수질|폐기물", re.I)
 
-KEYWORDS = ["환경안전", "EHS", "안전관리", "공정안전", "화학물질", "보건관리자"]
+# 2026-10-09 누락 점검: '안전보건'·'중대재해'로만 잡히는 대기업 공고(한진·BGF리테일·KREAM)가 있어 확대
+KEYWORDS = ["환경안전", "EHS", "안전관리", "공정안전", "화학물질", "보건관리자", "안전보건", "중대재해", "산업안전", "안전환경", "SHE", "HSE", "PSM", "환경관리"]
 
 _last: dict[str, float] = {}
 _count: dict[str, int] = {}
@@ -114,10 +115,12 @@ _SR_SIZE = {"scale001": "대기업", "scale002": "매출1000대", "scale003": "�
 def fetch_saramin(keyword: str, company_type: str = SARAMIN_LARGE, max_pages: int = 2, sort: str = "reg_dt") -> list[dict]:
     """사람인 검색 + 기업형태 필터. sort=reg_dt(등록일순)라 매일 돌리면 새 공고가 앞쪽 쪽에 온다."""
     out, seen = [], set()
-    size_label = "/".join(_SR_SIZE.get(c, c) for c in company_type.split(","))
+    size_label = "/".join(_SR_SIZE.get(c, c) for c in company_type.split(",")) if company_type else "전체"
     for page in range(1, max_pages + 1):
-        q = urllib.parse.urlencode({"searchword": keyword, "company_type": company_type, "recruitSort": sort,
-                                    "recruitPageCount": 100, "recruitPage": page}, safe=",")
+        params = {"searchword": keyword, "recruitSort": sort, "recruitPageCount": 100, "recruitPage": page}
+        if company_type:
+            params["company_type"] = company_type
+        q = urllib.parse.urlencode(params, safe=",")
         url = f"{SARAMIN}/zf_user/search/recruit?{q}"
         if not _allowed(url):
             break
@@ -151,11 +154,16 @@ def fetch_saramin(keyword: str, company_type: str = SARAMIN_LARGE, max_pages: in
 
 
 def fetch_saramin_large(keyword: str) -> list[dict]:
-    return fetch_saramin(keyword, SARAMIN_LARGE, max_pages=2)
+    return fetch_saramin(keyword, SARAMIN_LARGE, max_pages=5)   # 최근 500건: 수집 시작 전 공고도 (10/4 이전 등록분 누락 사례)
+
+
+def fetch_saramin_all(keyword: str) -> list[dict]:
+    """기업형태 필터 없이 — 작은 대기업 계열사(스틸싸이클·한솔티씨에스 등)는 '대기업' 필터에 안 걸린다. 공정위 명단 대조는 수집기가(groups_only)"""
+    return fetch_saramin(keyword, "", max_pages=3)
 
 
 def fetch_saramin_mid(keyword: str) -> list[dict]:
-    return fetch_saramin(keyword, SARAMIN_MID, max_pages=1)
+    return fetch_saramin(keyword, SARAMIN_MID, max_pages=2)
 
 
 # ---------------------------------------------------------------- 잡코리아
@@ -217,7 +225,7 @@ def fetch_jobkorea(keyword: str, cotype: str = JK_LARGE, max_pages: int = 3) -> 
 
 
 def fetch_jobkorea_large(keyword: str) -> list[dict]:
-    return fetch_jobkorea(keyword, JK_LARGE, max_pages=3)
+    return fetch_jobkorea(keyword, JK_LARGE, max_pages=4)
 
 
 # ---------------------------------------------------------------- 자소설닷컴
@@ -289,6 +297,7 @@ FETCHERS = {
     # 사람인: 대기업망 6키워드 × 최대 2쪽 = ≤12회, 중견망 6회 → robots 포함 ≤19회
     "사람인 대기업·공기업·외국계": _multi(fetch_saramin_large, KEYWORDS),
     "사람인 중견": _multi(fetch_saramin_mid, KEYWORDS),
+    "사람인 전체(대기업 계열사 대조)": _multi(fetch_saramin_all, KEYWORDS),
     # 잡코리아: 6키워드 × 최대 3쪽 = ≤18회
     "잡코리아 대기업·공기업·외국계": _multi(fetch_jobkorea_large, KEYWORDS),
     # 자소설닷컴: 진행 중 전체 ≈ 3~4회 (키워드 불필요)
