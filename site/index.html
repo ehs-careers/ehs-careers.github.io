@@ -9,24 +9,18 @@
    색: 청량 라군 기본 + 색감 모드 9종(data-palette). claude.ai 의 data-theme(밝게/어둡게)은 그대로 존중. 글꼴 Pretendard(같은 곳에 올린 파일) */
 @font-face{font-family:"Pretendard";src:url("fonts/PretendardVariable.woff2") format("woff2-variations"),url("fonts/PretendardVariable.woff2") format("woff2");font-weight:45 920;font-display:swap}
 :root{
-  --bg:#ffffff;--text:#262a36;--text-2:#454a59;--muted:#868b9a;--err:#c4262e;--ok:#1a7f37;--warn:#9a5b00;--warn-soft:#fff1d6;
-  --side:#effafd;--soft:#f0f9fc;--soft-2:#dcf1f6;--line:#def0f4;--line-2:#c3e3ea;
-  --accent:#0a8fa3;--accent-hover:#07788a;--accent-soft:#d8f4f8;--accent-soft-2:#aee6ee;--accent-text:#067484;
-  --sel:#e3f7fa;--mark:#b4f0f2;--btn-fg:#ffffff;
-  --sun:radial-gradient(120% 140% at 0% 0%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 45%);
-  --side-bg:var(--sun),linear-gradient(180deg,#c2ebff 0%,#c6f2f7 38%,#cff7ea 72%,#effcf6 100%);
-  --head-bg:linear-gradient(100deg,#bfe7ff 0%,#b9eff8 38%,#bdf4e6 72%,#dcfaee 100%);
-  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 24C150 8 300 38 450 22S750 6 900 22s200 14 300-2V40H0Z' fill='%23ffffff' fill-opacity='.45'/%3E%3Cpath d='M0 30c200-12 350 10 600-2s400 12 600-2V40H0Z' fill='%23ffffff' fill-opacity='.8'/%3E%3C/svg%3E");
-  --band-bg:linear-gradient(90deg,#f1fafe 0%,#effbfb 50%,#f1fcf7 100%);
-  --sel-bg:linear-gradient(90deg,#d2f1fc 0%,#d9f7f5 60%,#e8fbf3 100%);
-  --sel-bar:linear-gradient(180deg,#5ec4ff 0%,#2fd0d8 50%,#4fe0b0 100%);
-  --btn-bg:linear-gradient(100deg,#1f8fd6 0%,#0a9cb3 55%,#0d9e88 100%);
-  --btn-bg-hover:linear-gradient(100deg,#1a7cbc 0%,#08889c 55%,#0b8a76 100%);
-  --on-bg:linear-gradient(90deg,#d2f0fb 0%,#d6f6ee 100%);
-  --nav-on:rgba(255,255,255,.78);--glass:rgba(255,255,255,.55);--glass-2:rgba(255,255,255,.75);
-  --notice-bg:linear-gradient(90deg,#d6f0fc 0%,#dcf8ee 100%);
-  --detail-bg:linear-gradient(180deg,#ffffff 0%,#ffffff 60%,#ecfafc 100%);
-  --glow:rgba(10,143,163,.13);--glow-2:rgba(10,160,190,.28);--thumb:#bfe3ea;--scrim:rgba(30,30,50,.28);
+  /* 기본 = 차분(2026-10-09 사용자: "색감이 AI 같다"): 그라데이션·유리·물결 없이 흰 바탕 + 짙은 청회색 한 가지 강조색. 예전 '청량 라군'은 색감 고르기에 남김 */
+  --bg:#ffffff;--text:#1f2328;--text-2:#4a5160;--muted:#8a909c;--err:#c4262e;--ok:#1a7f37;--warn:#9a5b00;--warn-soft:#fff3dc;
+  --side:#f6f7f9;--soft:#f6f7f9;--soft-2:#eceef2;--line:#e6e8ec;--line-2:#d5d9e0;
+  --accent:#1f5f8b;--accent-hover:#184d72;--accent-soft:#e9f0f6;--accent-soft-2:#c9dbe8;--accent-text:#1f5f8b;
+  --sel:#eef3f8;--mark:#fff1a8;--btn-fg:#ffffff;
+  --sun:linear-gradient(transparent,transparent);
+  --side-bg:#f6f7f9;--head-bg:#ffffff;--wave:none;
+  --band-bg:#f6f7f9;--sel-bg:#eef3f8;--sel-bar:#1f5f8b;
+  --btn-bg:#1f5f8b;--btn-bg-hover:#184d72;--on-bg:#e9f0f6;
+  --nav-on:#eef1f5;--glass:#f0f2f5;--glass-2:#ffffff;
+  --notice-bg:#f3f6fa;--detail-bg:#ffffff;
+  --glow:rgba(16,24,40,.06);--glow-2:rgba(16,24,40,.12);--thumb:#d5d9e0;--scrim:rgba(20,24,32,.32);
   --font:"Pretendard","Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",system-ui,sans-serif;
 }
 /* 어두운 화면: 색감을 고르지 않았을 때 시스템·claude.ai 설정을 따름 */
@@ -74,6 +68,26 @@
   --sun:radial-gradient(120% 140% at 0% 0%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 45%);
   --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 24C150 8 300 38 450 22S750 6 900 22s200 14 300-2V40H0Z' fill='%23ffffff' fill-opacity='.45'/%3E%3Cpath d='M0 30c200-12 350 10 600-2s400 12 600-2V40H0Z' fill='%23ffffff' fill-opacity='.8'/%3E%3C/svg%3E");
   --nav-on:rgba(255,255,255,.78);--glass:rgba(255,255,255,.55);--glass-2:rgba(255,255,255,.75);--scrim:rgba(30,30,50,.28);color-scheme:light}
+:root[data-palette="lagoon"]{
+  --bg:#ffffff;--text:#262a36;--text-2:#454a59;--muted:#868b9a;--err:#c4262e;--ok:#1a7f37;--warn:#9a5b00;--warn-soft:#fff1d6;
+  --side:#effafd;--soft:#f0f9fc;--soft-2:#dcf1f6;--line:#def0f4;--line-2:#c3e3ea;
+  --accent:#0a8fa3;--accent-hover:#07788a;--accent-soft:#d8f4f8;--accent-soft-2:#aee6ee;--accent-text:#067484;
+  --sel:#e3f7fa;--mark:#b4f0f2;--btn-fg:#ffffff;
+  --sun:radial-gradient(120% 140% at 0% 0%,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 45%);
+  --side-bg:var(--sun),linear-gradient(180deg,#c2ebff 0%,#c6f2f7 38%,#cff7ea 72%,#effcf6 100%);
+  --head-bg:linear-gradient(100deg,#bfe7ff 0%,#b9eff8 38%,#bdf4e6 72%,#dcfaee 100%);
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 24C150 8 300 38 450 22S750 6 900 22s200 14 300-2V40H0Z' fill='%23ffffff' fill-opacity='.45'/%3E%3Cpath d='M0 30c200-12 350 10 600-2s400 12 600-2V40H0Z' fill='%23ffffff' fill-opacity='.8'/%3E%3C/svg%3E");
+  --band-bg:linear-gradient(90deg,#f1fafe 0%,#effbfb 50%,#f1fcf7 100%);
+  --sel-bg:linear-gradient(90deg,#d2f1fc 0%,#d9f7f5 60%,#e8fbf3 100%);
+  --sel-bar:linear-gradient(180deg,#5ec4ff 0%,#2fd0d8 50%,#4fe0b0 100%);
+  --btn-bg:linear-gradient(100deg,#1f8fd6 0%,#0a9cb3 55%,#0d9e88 100%);
+  --btn-bg-hover:linear-gradient(100deg,#1a7cbc 0%,#08889c 55%,#0b8a76 100%);
+  --on-bg:linear-gradient(90deg,#d2f0fb 0%,#d6f6ee 100%);
+  --nav-on:rgba(255,255,255,.78);--glass:rgba(255,255,255,.55);--glass-2:rgba(255,255,255,.75);
+  --notice-bg:linear-gradient(90deg,#d6f0fc 0%,#dcf8ee 100%);
+  --detail-bg:linear-gradient(180deg,#ffffff 0%,#ffffff 60%,#ecfafc 100%);
+  --glow:rgba(10,143,163,.13);--glow-2:rgba(10,160,190,.28);--thumb:#bfe3ea;--scrim:rgba(30,30,50,.28);
+}
 :root[data-palette="pastel"]{--side:#f3f2fa;--soft:#f5f4fb;--soft-2:#dcdaee;--line:#eceef4;--line-2:#dde1ea;--accent:#7673b5;--accent-hover:#615e9f;--accent-soft:#edecf7;--accent-soft-2:#d6d3ee;--accent-text:#5f5c9c;--sel:#f3f2fa;--mark:#f6d9dc;
   --side-bg:var(--sun),linear-gradient(180deg,#dfecf7 0%,#edf4fa 38%,#f6f0f4 72%,#fae5e9 100%);--head-bg:linear-gradient(100deg,#dceaf8 0%,#e8ecfa 38%,#f3eaf4 72%,#f8e2ea 100%);
   --band-bg:linear-gradient(90deg,#f5f7fc 0%,#f6f4fb 50%,#fbf3f6 100%);--sel-bg:linear-gradient(90deg,#e3ebf8 0%,#ebe8f7 60%,#f8e8ef 100%);--sel-bar:linear-gradient(180deg,#8fb6e8 0%,#9d97dc 50%,#e8a3b6 100%);
@@ -453,6 +467,41 @@ textarea:focus,.inp:focus{border-color:var(--accent);box-shadow:0 3px 14px var(-
   .dr-h{padding:16px 16px 22px}
   .pbox{grid-template-columns:1fr 1fr}
 }
+
+/* 2026-10-09 차분한 기본의 크기: 머리 띠를 낮추고 카드 여백을 줄여 한 화면에 공고가 더 보이게 */
+:root:not([data-palette]) .topbar{border-bottom:1px solid var(--line)}
+:root:not([data-palette]) .hero{padding:14px 0 16px;border-bottom:1px solid var(--line)}
+:root:not([data-palette]) .hero h1{font-size:21px}
+:root:not([data-palette]) .search{height:44px;border:1px solid var(--line-2);box-shadow:none;border-radius:10px}
+:root:not([data-palette]) .search input{font-size:15px;font-weight:500}
+:root:not([data-palette]) .page{padding-top:18px}
+:root:not([data-palette]) .rows{gap:6px}
+:root:not([data-palette]) .jc{border-radius:10px;padding:10px 14px;gap:12px}
+:root:not([data-palette]) .jc:hover{box-shadow:0 2px 8px var(--glow)}
+:root:not([data-palette]) .jc.top{background:var(--bg);border-color:var(--line-2)}
+:root:not([data-palette]) .jc.top::after{width:3px;border-radius:10px 0 0 10px}
+:root:not([data-palette]) .jc.top .jc-ti,:root:not([data-palette]) .jc-ti{font-size:15px}
+:root:not([data-palette]) .av{width:34px;height:34px;border-radius:8px;font-size:13.5px}
+:root:not([data-palette]) .box,:root:not([data-palette]) .lane,:root:not([data-palette]) .cal{border-radius:10px}
+:root:not([data-palette]) .box{background:var(--bg)}
+:root:not([data-palette]) .hero.pic{min-height:300px}
+:root:not([data-palette]) .jc.fresh{border-color:var(--line-2);box-shadow:none}
+:root:not([data-palette]) .newbar{padding:9px 14px;margin-bottom:10px}
+:root:not([data-palette]) .newbar b{font-size:14px}
+.tags .lnk{margin-left:auto;font-size:12.5px}
+/* 휴대폰(차분 기본): 첫 공고가 빨리 보이게 위쪽을 압축 — 색감 버튼은 숨기고(데스크톱에서 고름), 필터는 가로로 밀어 보기 */
+@media (max-width:640px){
+  :root:not([data-palette]) .pal{display:none}
+  :root:not([data-palette]) .hero{padding:10px 0 12px}
+  :root:not([data-palette]) .hero h1{font-size:18px}
+  :root:not([data-palette]) .hero .sub{font-size:12.5px}
+  :root:not([data-palette]) .search{height:40px}
+  :root:not([data-palette]) .fbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  :root:not([data-palette]) .fbar .seg,:root:not([data-palette]) .fbar .fbtn{flex:none}
+  :root:not([data-palette]) .newbar{flex-wrap:nowrap}
+  :root:not([data-palette]) .newbar .muted{display:none}
+  :root:not([data-palette]) .page{padding-top:12px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <script>try{var p=localStorage.getItem("ui_theme");if(p)document.documentElement.setAttribute("data-palette",p)}catch(e){}</script>
@@ -545,7 +594,7 @@ const WD=["일","월","화","수","목","금","토"];
 const dayLabel=d=>{const x=new Date(d+"T00:00:00Z");return `${+d.slice(5,7)}월 ${+d.slice(8)}일 (${WD[x.getUTCDay()]})`};
 const safeUrl=u=>{try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:"#"}catch(e){return "#"}};
 const hostOf=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return ""}};
-const SITE_NAME={"saramin.co.kr":"사람인","jobkorea.co.kr":"잡코리아","catch.co.kr":"캐치","wanted.co.kr":"원티드","linkedin.com":"링크드인","incruit.com":"인크루트","job.incruit.com":"인크루트","kr.indeed.com":"인디드"};
+const SITE_NAME={"jasoseol.com":"자소설닷컴","samsungcareers.com":"삼성 채용","careers.lg.com":"LG 채용","skcareers.com":"SK 채용","hanwhain.com":"한화 채용","talent.hyundai.com":"현대차 채용","recruit.hd.com":"HD현대 채용","hd.recruiter.co.kr":"HD현대 채용","recruiter.co.kr":"회사 채용 사이트","recruit.lotte.co.kr":"롯데 채용","recruit.cj.net":"CJ 채용","career.doosan.com":"두산 채용","greetinghr.com":"회사 채용 사이트","saramin.co.kr":"사람인","jobkorea.co.kr":"잡코리아","catch.co.kr":"캐치","wanted.co.kr":"원티드","linkedin.com":"링크드인","incruit.com":"인크루트","job.incruit.com":"인크루트","kr.indeed.com":"인디드"};
 const siteName=u=>{const h=hostOf(u);return SITE_NAME[h]||Object.entries(SITE_NAME).find(([k])=>h.endsWith(k))?.[1]||h||"원문"};
 
 // 주요 대기업(흔히 말하는 대기업 그룹 · 공정위 대기업집단 중심, 업종 무관): 어떤 정렬에서도 맨 위.
@@ -663,8 +712,8 @@ function rowCard(j,opt={}){
     if(notRegular(j))pr.append(el("span","st warn",j.emp_type.split(/\s/)[0]));
     cmpBadges(j,pr);
     if(dutyWarn(j))pr.append(el("span","st warn","직무 불일치 의심"));
-    if(j.duty_flag)pr.append(el("span","st warn",j.duty_flag.length>24?j.duty_flag.slice(0,24)+"…":j.duty_flag));m.append(pr);
-    const tg=el("div","tags");[j.track==="신입"&&!j.exp?"대기업 신입":(j.exp||"경력"),j.emp_type&&!notRegular(j)?j.emp_type.split(/\s/)[0]:"",j.fit?"적합도 "+j.fit:""].filter(Boolean).forEach(t=>tg.append(el("span","tag",t)));badges(j,tg);m.append(tg);m.append(linkEl(j))}
+    if(j.duty_flag)pr.append(el("span","st warn",j.duty_flag.length>24?j.duty_flag.slice(0,24)+"…":j.duty_flag));
+    const tg=el("div","tags");[j.track==="신입"&&!j.exp?"대기업 신입":(j.exp&&j.exp!=="확인 불가"?j.exp:(j.track==="신입"?"":"경력")),j.emp_type&&!notRegular(j)?j.emp_type.split(/\s/)[0]:"",j.fit?"적합도 "+j.fit:""].filter(Boolean).forEach(t=>tg.append(el("span","tag",t)));badges(j,tg);pr.append(...tg.childNodes,linkEl(j));m.append(pr)} // 기간·확인·경력·태그·링크를 한 줄로(카드 3줄)
   else{const tg=el("div","tags");tg.append(ddChip(j));badges(j,tg);m.append(tg)}
   c.append(av,m);
   if(!opt.compact){const sd=el("div","jc-side");sd.append(ddChip(j));
@@ -1055,7 +1104,7 @@ document.addEventListener("keydown",e=>{
   else if(e.key==="Delete"&&j&&canSave()&&!S.trash[j._id]){if(S.open)closeDrawer();toTrash(j._id)}
 });
 // 색감 고르기
-const PALS=[["","청량 라군","linear-gradient(135deg,#bfe7ff,#bdf4e6)"],["pastel","하늘 파스텔","linear-gradient(135deg,#dceaf8,#f6dbe3)"],["sakura","벚꽃","linear-gradient(135deg,#fbd3e2,#eedcf6)"],
+const PALS=[["","차분 (기본)","linear-gradient(135deg,#ffffff,#c9dbe8)"],["lagoon","청량 라군","linear-gradient(135deg,#bfe7ff,#bdf4e6)"],["pastel","하늘 파스텔","linear-gradient(135deg,#dceaf8,#f6dbe3)"],["sakura","벚꽃","linear-gradient(135deg,#fbd3e2,#eedcf6)"],
   ["lavender","라벤더","linear-gradient(135deg,#e2d6f7,#d9e5fa)"],["spring","봄볕","linear-gradient(135deg,#ffe9a8,#ddf2c4)"],["forest","숲","linear-gradient(135deg,#cfe8d1,#eef6dc)"],
   ["sunset","노을","linear-gradient(135deg,#fdd9c2,#f9d6dc)"],["slate","차분한 회색","linear-gradient(135deg,#dfe4ea,#f1f3f6)"],["night","밤 (어둡게)","linear-gradient(135deg,#132c3c,#12312d)"]];
 let pic=true;try{pic=localStorage.getItem("jr-pic")!=="off"}catch(e){}
