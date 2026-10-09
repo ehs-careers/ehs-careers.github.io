@@ -65,6 +65,48 @@ def score(j):
             + (j.get("source") != "클라우드 알림") * 1 + bool(re.match(r"\d{4}-", j.get("deadline") or "")) * 1)
 
 
+# ---- 낱말 비교 (2026-10-09 2차: 순서·날짜·칸막이만 다른 같은 공고) ----
+STOP = set("채용 모집 공고 경력 경력직 경력사원 신입 신입사원 사원 담당 담당자 인재 직원 정규직 수시 상시 공개 공개채용 수시채용 하반기 상반기 및 의 건 중 각 부문 부문별 분야 직무 근무 인원 채용중".split())
+FIELD = ["환경", "안전", "보건", "위생", "소방", "방재", "공정", "화학", "위험물", "대기", "수질", "폐기물", "온실", "산업", "중대재해", "기획", "설계", "분석",
+         "ehs", "she", "hse", "hseq", "esg", "psm", "인턴", "신입", "팀장", "그룹장", "파트장", "수석", "책임", "선임", "과장", "차장", "부장", "주니어", "시니어", "manager", "engineer", "specialist"]
+
+
+def tokens(title, company):
+    t = re.sub(r"\d{2,4}\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}.*$", " ", title or "")      # '2026/09/29 ~ …' 같은 날짜 꼬리
+    t = re.sub(r"20\d\d\s*년?|\d+\s*월", " ", t)
+    for v in co_variants(company) | {re.sub(r"\(주\)|㈜|주식회사|\s", "", (company or "").split("→")[0])}:
+        if len(v) >= 2:
+            t = re.sub(re.escape(v), " ", t, flags=re.I)
+    words = re.findall(r"[가-힣]+|[a-z]+|\d+", t.lower())
+    out = set()
+    for w in words:
+        w = re.sub(r"(공장|사업장|사업소|팀|실|부|파트)$", "", w) or w
+        if w and w not in STOP and len(w) >= 2:
+            out.add(w)
+    return out
+
+
+def fields(title):
+    t = (title or "").lower()
+    return {f for f in FIELD if f in t}
+
+
+def covered(a, b):
+    """a 의 모든 낱말이 b 의 어떤 낱말과 같거나 앞부분이 겹친다('인사총무' ~ '인사총무사무원')"""
+    return all(any(x == y or x.startswith(y) or y.startswith(x) for y in b) for x in a)
+
+
+def same_posting(a, b):
+    if not same_company(a["company"], b["company"]):
+        return False
+    if fields(a["title"]) != fields(b["title"]):
+        return False   # 안전관리 ≠ 보건관리, 인재 ≠ 그룹장
+    ta, tb = tokens(a["title"], a["company"]), tokens(b["title"], b["company"])
+    if not ta and not tb:
+        return title_core(a["title"], a["company"]) == title_core(b["title"], b["company"])
+    return (covered(ta, tb) or covered(tb, ta)) and bool(ta) and bool(tb)
+
+
 def merge_duplicates(jobs):
     """jobs(list of dict) → (합친 목록, 합친 수). 같은 상태(진행/마감)끼리만 합친다."""
     parent = list(range(len(jobs)))
@@ -76,15 +118,12 @@ def merge_duplicates(jobs):
         return i
 
     cores = [title_core(j["title"], j["company"]) for j in jobs]
-    by_len = {}
-    for i, c in enumerate(cores):
-        by_len.setdefault(c[:10], []).append(i)
-    for idxs in by_len.values():
-        for x in range(len(idxs)):
-            for y in range(x + 1, len(idxs)):
-                i, k = idxs[x], idxs[y]
-                if jobs[i]["status"] == jobs[k]["status"] and same_title(cores[i], cores[k]) and same_company(jobs[i]["company"], jobs[k]["company"]):
-                    parent[find(i)] = find(k)
+    for i in range(len(jobs)):
+        for k in range(i + 1, len(jobs)):
+            if jobs[i]["status"] != jobs[k]["status"]:
+                continue
+            if (same_title(cores[i], cores[k]) and same_company(jobs[i]["company"], jobs[k]["company"])) or same_posting(jobs[i], jobs[k]):
+                parent[find(i)] = find(k)
     groups = {}
     for i in range(len(jobs)):
         groups.setdefault(find(i), []).append(jobs[i])
