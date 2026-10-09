@@ -880,7 +880,9 @@ function renderDrawer(){
   const ur=el("div","url",j.link||"링크 없음");
   const ac=el("div","acts");const a=el("a","primary");a.href=safeUrl(j.link);a.target="_blank";a.rel="noopener noreferrer";a.append(svg("ext"),"원문 공고 열기");
   const cp=el("button","outline");cp.type="button";cp.append(svg("copy"),"주소 복사");cp.onclick=()=>copyText(j.link||"",ur);ac.append(a,cp);
-  lb.append(ho,ur,ac);s1.append(lb);b.append(s1);
+  lb.append(ho,ur,ac);s1.append(lb);
+  if(j.also&&j.also.length){const al=el("div","muted");al.append("같은 공고가 다른 곳에도 있어요: ");j.also.forEach((x,i)=>{const a=el("a",null,x.site);a.href=safeUrl(x.link);a.target="_blank";a.rel="noopener noreferrer";if(i)al.append(" · ");al.append(a)});s1.append(al)}
+  b.append(s1);
   // 진행 상황
   const s2=el("div","dsec");const h2=el("h3",null,"내 진행 상황");h2.append(el("small",null,"관심·지원·패스는 추천 학습에도 쓰여요"));const sw=el("div","stages");sw.id="dr-stages";fillStages(sw,j);s2.append(h2,sw);b.append(s2);
   // 자기소개서
@@ -975,6 +977,10 @@ function initSince(){const run=S.meta?.runDate||today();let prev=null;try{prev=l
   S.since=prev&&prev<=run?(prev===run?(sessionStorage.getItem("jr-since")||prev):prev):new Date(Date.parse(run)-864e5).toISOString().slice(0,10);
   try{sessionStorage.setItem("jr-since",S.since);localStorage.setItem("jr-seenrun",run)}catch(e){}}
 function allSeen(){S.since=S.meta?.runDate||today();try{sessionStorage.setItem("jr-since",S.since)}catch(e){}render()}
+function moveAliasMarks(){let ch=false;
+  for(const j of S.all)for(const a of (j.aliases||[])){
+    for(const k of ["marks","stage","memo","seen","trash","gone"]){const o=S[k];if(o[a]!=null&&o[j._id]==null){S[k]={...o,[j._id]:o[a]};ch=true}}}
+  if(ch)saveUser()}
 function applyProf(){const want=PROF_NAME[S.prof];S.jobs=S.all.filter(j=>!j.sec||j.sec.includes(want))}
 function renderHead(){renderProf();
   const base=baseRows();const nNew=base.filter(isNew).length,nDue=base.filter(isDue).length,mine=base.filter(j=>!closed(j)&&laneOf(j)).length;
@@ -1115,7 +1121,7 @@ function loadMarks(){const d=readL("data/users/me/marks")||{};const{m,c,stage,me
   const key=getKey();
   if(!key){S.loaded=true;render();$("page").replaceChildren(emptyBox("radar","받은 링크로 열어 주세요","이 페이지는 공유받은 링크로만 볼 수 있어요. 처음 받은 링크(끝에 #k=… 가 붙은 주소)를 한 번 열면 그다음부터는 이 브라우저에서 바로 열려요."));$("h1sub").textContent="열쇠 없음";return}
   try{const d=await openData(key);
-    S.all=(d.jobs||[]).map(j=>({_id:j.id,...j}));S.meta=d.meta||null;initSince();applyProf()}
+    S.all=(d.jobs||[]).map(j=>({_id:j.id,...j}));S.meta=d.meta||null;initSince();moveAliasMarks();applyProf()}
   catch(e){S.loaded=true;render();$("page").replaceChildren(emptyBox("radar","공고 데이터를 불러오지 못했어요",(e&&e.message&&/열쇠/.test(e.message))?e.message:"잠시 후 새로고침해 주세요. 계속 안 되면 수집이 멈췄을 수 있어요."));$("h1sub").textContent="연결 안 됨";return}
   S.loaded=true;render();
   addEventListener("storage",e=>{if(e.key===LKEY("data/users/me/marks")){loadMarks();render()}}); // 다른 탭에서 바꾼 표시

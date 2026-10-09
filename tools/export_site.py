@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "ml"))
 import job_radar as jr  # noqa: E402  (DATA 폴더·설정 읽기 규칙을 그대로 쓴다)
 import relevance as R  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
 
 KEEP_CLOSED_DAYS = 30  # 닫힌 공고도 30일은 남긴다('마감됨' 보기·내 지원 현황 유지)
 # 우량 중견 기준(사용자 지시 2026-10-08: "어중간한 중견은 빠지고 대기업 위주") — 사람인 기업정보(국민연금 사원수·평균연봉 추정)
@@ -86,6 +87,9 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
         r = dict(r)
         if (r.get("verify") or "").startswith(("중복: ", "다른 회사")):
             continue
+        # 채용 포털 홍보 문구('금호석유화학 환경 오소영 대리' 같은 직원 소개)가 공고로 들어온 것 — 2026-10-09 실례
+        if re.search(r"(?:대리|과장|차장|부장|사원|책임|매니저|프로|님)\s*$", r["title"]) and not re.search(r"채용|모집|공고|경력|신입|인턴|선임", r["title"]):
+            continue
         sec = R.sections({"title": r["title"], "company": r["company"]}, st, r.get("size_rank"))
         if not sec:  # 규칙이 바뀌어 어느 분야에도 안 맞는 옛 공고
             continue
@@ -113,6 +117,8 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
             "avg_salary": r.get("avg_salary") or 0, "employees": r.get("employees") or 0, "salary_year": r.get("salary_year") or 0,
             "company_form": r.get("company_form") or "", "firstSeen": r.get("first_seen") or "", "lastSeen": r.get("last_seen") or "",
         })
+    from dedup_view import merge_duplicates  # 같은 공고가 여러 사이트에 올라온 것을 한 장으로(화면용, DB 는 그대로)
+    jobs, merged = merge_duplicates(jobs)
     run = con.execute("SELECT run_at, new, open, sources_ok, sources_total FROM runs ORDER BY run_at DESC LIMIT 1").fetchone()
     # runDate = 이번 수집이 '처음 본 날'로 적은 날짜(수집 시작일). 끝난 시각의 날짜를 쓰면 자정을 넘긴 수집에서 새 공고가 0건으로 보인다(2026-10-09 실례)
     first = max((j["firstSeen"] for j in jobs if j["firstSeen"]), default="")
@@ -122,6 +128,7 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
             "counts": {s: sum(s in j["sec"] and j["status"] == "open" for j in jobs) for s in ("환경", "안전")}}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({"meta": meta, "jobs": jobs}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"중복 합침 {merged}건")
     print(f"site 데이터: 공고 {len(jobs)}건 (진행 중 환경 {meta['counts']['환경']} · 안전 {meta['counts']['안전']}) → {out}")
 
 

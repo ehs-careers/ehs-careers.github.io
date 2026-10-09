@@ -264,6 +264,30 @@ def check_tiers():
     return [f"등급 {r['company']} → {ex.co_tier(r, s, {}, mids)[0]} (기대 {w})" for r, s, w in TIER_CASES if ex.co_tier(r, s, {}, mids)[0] != w]
 
 
+# 화면용 중복 합치기 (2026-10-09 실제 사례): (공고 A, 공고 B, 합쳐야 하나)
+DUP_CASES = [
+    (("에이치디현대삼호㈜", "크레인 안전관리 경력사원 채용"), ("HD현대삼호", "크레인 안전관리 경력사원 채용"), True),
+    (("쿠팡풀필먼트서비스(유)", "물류센터 EHS(안전, 보건, 소방, 환경)"), ("쿠팡풀필먼트서비스(쿠팡CFS)", "[쿠팡CFS] 물류센터 EHS(안전, 보건, 소방, 환경)"), True),
+    (("㈜글로벌스카우트", "반도채 소재 대기업 계열사 가스 안전관리자 경력직 채용중"), ("㈜글로벌스카우트", "반도채 소재 대기업 계열사 가스 안전관리자 경력직 채용"), True),
+    (("엘에스엠앤엠", "각 부문별 상시채용(안전관리)"), ("엘에스엠앤엠", "각 부문별 상시채용(보건관리)"), False),   # 다른 분야 = 다른 공고
+    (("LS전선", "환경안전 경력직 채용 공고"), ("(주)세종전선", "[세종전선(LS전선 관계사)] 환경안전 경력직 채용 공고"), False),  # 다른 회사
+    (("DS단석", "DS단석 평택공장 친환경에너지 바이오디젤 공무팀(기계) 채용"), ("DS단석", "DS단석 평택공장 친환경에너지 바이오디젤 생산직 채용"), False),
+]
+
+
+def check_dups():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import dedup_view as dv
+    bad = []
+    for (ca, ta), (cb, tb), want in DUP_CASES:
+        jobs = [{"id": "a", "company": ca, "title": ta, "status": "open", "sec": ["안전"], "firstSeen": "2026-10-08", "link": "", "deadline": ""},
+                {"id": "b", "company": cb, "title": tb, "status": "open", "sec": ["안전"], "firstSeen": "2026-10-08", "link": "", "deadline": ""}]
+        got = len(dv.merge_duplicates(jobs)[0]) == 1
+        if got != want:
+            bad.append(f"중복 판정 {ca}/{ta} ↔ {cb}/{tb} → {got} (기대 {want})")
+    return bad
+
+
 def check_sections():
     sys.path.insert(0, str(ROOT / "ml"))
     import relevance as R
@@ -273,7 +297,7 @@ def check_sections():
 
 
 def main():
-    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers()
+    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups()
     for b in bad_co: print("  ✗ 회사명 판정:", b)
     tmp = Path(tempfile.mkdtemp(prefix="jobradar_test_"))
     src = [
