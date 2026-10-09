@@ -489,6 +489,9 @@ textarea:focus,.inp:focus{border-color:var(--accent);box-shadow:0 3px 14px var(-
 :root:not([data-palette]) .newbar{padding:9px 14px;margin-bottom:10px}
 :root:not([data-palette]) .newbar b{font-size:14px}
 .tags .lnk{margin-left:auto;font-size:12.5px}
+input[type=search]::-webkit-search-cancel-button{display:none} /* 직접 만든 지우기 버튼과 겹침 */
+.roles{font-size:12.5px;color:var(--accent-text);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rolebox{display:flex;flex-direction:column;gap:4px;margin-top:10px;font-size:13px}.rolebox a{color:var(--accent-text)}
 /* 휴대폰(차분 기본): 첫 공고가 빨리 보이게 위쪽을 압축 — 색감 버튼은 숨기고(데스크톱에서 고름), 필터는 가로로 밀어 보기 */
 @media (max-width:640px){
   :root:not([data-palette]) .pal{display:none}
@@ -707,6 +710,7 @@ function rowCard(j,opt={}){
   const co=el("div","jc-co");const b=el("b");b.append(hl(j.company));co.append(b," · "+[RANK_SHORT[r],j.location&&j.location!=="확인 불가"?j.location:""].filter(Boolean).join(" · "));
   const ti=el("div","jc-ti");ti.append(hl(j.title));ti.title=j.title||"";
   m.append(co,ti);
+  if(j.roles&&j.roles.length){const rl=el("div","roles",`같은 채용의 다른 분야 ${j.roles.length}건 · `+j.roles.map(r=>roleName(r.title,j.title)).join(" · "));m.append(rl)}
   if(!opt.compact){const pr=el("div","tags");pr.append(periodEl(j));
     if(verified(j))pr.append(el("span","st ok","✓ 원문 확인"));else pr.append(el("span","st no","원문 미확인"));
     if(notRegular(j))pr.append(el("span","st warn",j.emp_type.split(/\s/)[0]));
@@ -726,6 +730,8 @@ function rowCard(j,opt={}){
   c.onclick=()=>openDrawer(j._id);c.onkeydown=e=>{if(e.key==="Enter"&&e.target===c){e.preventDefault();openDrawer(j._id)}};
   return c;
 }
+// '각 부문별 상시채용(보건관리)' vs 대표 '…(안전관리)' → '보건관리' 처럼 다른 부분만
+function roleName(t,base){t=t||"";let i=0;while(i<t.length&&i<base.length&&t[i]===base[i])i++;let s=t.slice(i).replace(/^[\s|_\-:(·]+|[\s)]+$/g,"");return (s.length>=2?s:t).slice(0,40)}
 function emptyBox(icon,h,p){const e=el("div","empty");e.append(svg(icon),el("h3",null,h),el("p",null,p));return e}
 function previewNote(box){if(S.preview){const n=el("div","notice");n.append(el("b",null,"미리보기 데이터 "),"claude.ai 밖에서 열려 예시 공고를 보여 줘요. 여기서 누른 표시는 저장되지 않아요.");box.append(n)}}
 
@@ -930,6 +936,8 @@ function renderDrawer(){
   const ac=el("div","acts");const a=el("a","primary");a.href=safeUrl(j.link);a.target="_blank";a.rel="noopener noreferrer";a.append(svg("ext"),"원문 공고 열기");
   const cp=el("button","outline");cp.type="button";cp.append(svg("copy"),"주소 복사");cp.onclick=()=>copyText(j.link||"",ur);ac.append(a,cp);
   lb.append(ho,ur,ac);s1.append(lb);
+  if(j.roles&&j.roles.length){const rb=el("div","rolebox");rb.append(el("b",null,"같은 채용의 다른 분야"));
+    j.roles.forEach(r=>{const a=el("a",null,r.title);a.href=safeUrl(r.link);a.target="_blank";a.rel="noopener noreferrer";rb.append(a)});s1.append(rb)}
   if(j.also&&j.also.length){const al=el("div","muted");al.append("같은 공고가 다른 곳에도 있어요: ");j.also.forEach((x,i)=>{const a=el("a",null,x.site);a.href=safeUrl(x.link);a.target="_blank";a.rel="noopener noreferrer";if(i)al.append(" · ");al.append(a)});s1.append(al)}
   b.append(s1);
   // 진행 상황

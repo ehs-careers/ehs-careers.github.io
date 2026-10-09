@@ -12,8 +12,16 @@ KO_EN = [("에이치디", "hd"), ("엘에스", "ls"), ("에스케이", "sk"), ("
          ("디엘", "dl"), ("에이치엘", "hl"), ("엘엑스", "lx"), ("케이티", "kt"), ("에쓰오일", "soil"), ("에스오일", "soil")]
 
 
+EN_KO = [("electric", "일렉트릭"), ("electronics", "일렉트로닉스"), ("chemical", "케미칼"), ("chem", "켐"), ("materials", "머티리얼즈"), ("material", "머티리얼"),
+         ("energy", "에너지"), ("solutions", "솔루션"), ("solution", "솔루션"), ("steel", "스틸"), ("motors", "모터스"), ("mobility", "모빌리티"),
+         ("display", "디스플레이"), ("innotek", "이노텍"), ("hynix", "하이닉스"), ("bio", "바이오"), ("logistics", "로지스틱스"), ("cable", "전선"),
+         ("mnm", "엠앤엠"), ("e&a", "이앤에이"), ("e&c", "이앤씨"), ("future", "퓨처"), ("glass", "글라스"), ("tire", "타이어"), ("holdings", "홀딩스")]
+
+
 def norm_co(s):
-    s = (s or "").split("→")[0]
+    s = (s or "").split("→")[0].lower()
+    for en, ko in EN_KO:   # 'LS ELECTRIC' = 'LS일렉트릭'
+        s = re.sub(en, ko, s)
     s = re.sub(r"\(주\)|㈜|주식회사|\(유\)|유한회사|유한책임회사|\s|[·.,\-&]", "", s).lower()
     for ko, en in KO_EN:
         s = s.replace(ko, en)
@@ -107,6 +115,95 @@ def same_posting(a, b):
     return (covered(ta, tb) or covered(tb, ta)) and bool(ta) and bool(tb)
 
 
+PLACES = set("""서울 경기 인천 부산 대구 대전 광주 울산 세종 강원 충북 충남 전북 전남 경북 경남 제주 화성 용인 수원 성남 하남 안산 시흥 평택 이천 파주 군포 의왕 안양 김포 오산
+천안 아산 당진 서산 대산 음성 진천 청주 오송 오창 충주 구미 포항 김천 경주 창원 거제 통영 김해 양산 여수 광양 순천 나주 군산 익산 전주 온산 속초 원주 본사 국내 전국""".split())
+
+
+def base_tokens(title, company):
+    """분야·지역·직급 낱말을 뺀 채용 자체의 낱말 ('2026년 신입사원 공개채용 | 안전환경_…' → 공채 쪽만)"""
+    t = re.split(r"\s[|_]\s|_|\s\|\s|\|", title or "")[0] if re.search(r"[|_]", title or "") else (title or "")
+    out = set()
+    for w in tokens(t, company):
+        if w in PLACES or any(f in w for f in FIELD) or re.search(r"(담당|관리|관리자|선임|기술인|엔지니어)$", w):
+            continue
+        out.add(w)
+    return out
+
+
+AGENCY = re.compile(r"서치|써치|헤드헌|파트너스|스카우트|커리어|에이치알|\bHR\b|피플|맨파워|퍼솔|아데코|인드림|헌터|휴먼|리크루트|아웃소싱|→", re.I)
+
+
+def exact_company(a, b):
+    """묶기는 회사가 정확히 같을 때만 (쿠팡 ≠ 쿠팡풀필먼트서비스)"""
+    va, vb = co_variants(a), co_variants(b)
+    return bool(va & vb)
+
+
+def hiring_name(title, company):
+    """'…공개채용 | 안전환경_…' 의 앞부분을 정규화. 구분자(| _)가 없으면 ''"""
+    if not re.search(r"[|_]", title or ""):
+        return ""
+    t = re.split(r"[|_]", title)[0]
+    for v in co_variants(company):
+        t = re.sub(re.escape(v), "", t, flags=re.I)
+    t = re.sub(r"20\d\d\s*년?|하반기|상반기|\(주\)|㈜|[^0-9a-z가-힣]", "", t.lower())
+    return t if len(t) >= 4 else ""
+
+def same_hiring(a, b):
+    if AGENCY.search(a["company"] or "") or AGENCY.search(b["company"] or ""):
+        return False   # 헤드헌팅·파견: 회사명이 같아도 고객사가 다를 수 있다
+    if not exact_company(a["company"], b["company"]):
+        return False
+    if a.get("link") and a.get("link") == b.get("link"):
+        return True
+    # 공채 이름이 같으면(구분자 앞부분: '2026년 (하반기) 신입사원 공개채용') 같은 채용 — 분야는 뒤쪽에
+    pa, pb = hiring_name(a["title"], a["company"]), hiring_name(b["title"], b["company"])
+    if pa and pa == pb:
+        return True
+    ba, bb = base_tokens(a["title"], a["company"]), base_tokens(b["title"], b["company"])
+    if not ba and not bb:   # '경기 화성 단체급식 사업장 안전담당 모집' vs '…보건담당 모집' → 분야만 다름
+        ra = tokens(a["title"], a["company"]) - {w for w in tokens(a["title"], a["company"]) if any(f in w for f in FIELD) or w.endswith(("담당", "관리", "관리자"))}
+        rb = tokens(b["title"], b["company"]) - {w for w in tokens(b["title"], b["company"]) if any(f in w for f in FIELD) or w.endswith(("담당", "관리", "관리자"))}
+        return bool(ra) and ra == rb
+    return bool(ba) and bool(bb) and (covered(ba, bb) or covered(bb, ba))
+
+
+def bundle(jobs):
+    """같은 회사의 같은 채용(분야·지역만 다름)을 한 장으로: 대표 카드에 roles=[{title, link, id}] 를 단다."""
+    parent = list(range(len(jobs)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+    for i in range(len(jobs)):
+        for k in range(i + 1, len(jobs)):
+            if jobs[i]["status"] == jobs[k]["status"] and same_hiring(jobs[i], jobs[k]):
+                parent[find(i)] = find(k)
+    groups = {}
+    for i in range(len(jobs)):
+        groups.setdefault(find(i), []).append(jobs[i])
+    out, n = [], 0
+    for g in groups.values():
+        if len(g) == 1:
+            out.append(g[0]); continue
+        g.sort(key=score, reverse=True)
+        rep = dict(g[0])
+        rep["roles"] = [{"title": j["title"], "link": j.get("link", ""), "id": j["id"]} for j in g[1:]]
+        rep["aliases"] = rep.get("aliases", []) + [x for j in g[1:] for x in [j["id"], *j.get("aliases", [])]]
+        rep["also"] = rep.get("also", []) + [x for j in g[1:] for x in j.get("also", [])]
+        rep["sec"] = sorted({s for j in g for s in j["sec"]}, key=["환경", "안전"].index)
+        firsts = [j["firstSeen"] for j in g if j.get("firstSeen")]
+        rep["firstSeen"] = min(firsts) if firsts else rep.get("firstSeen", "")
+        dls = sorted(j["deadline"] for j in g if re.match(r"\d{4}-", j.get("deadline") or ""))
+        if dls and not re.match(r"\d{4}-", rep.get("deadline") or ""):
+            rep["deadline"] = dls[0]
+        out.append(rep)
+        n += len(g) - 1
+    return out, n
+
+
 def merge_duplicates(jobs):
     """jobs(list of dict) → (합친 목록, 합친 수). 같은 상태(진행/마감)끼리만 합친다."""
     parent = list(range(len(jobs)))
@@ -147,4 +244,5 @@ def merge_duplicates(jobs):
         rep["sec"] = sorted({s for j in g for s in j["sec"]}, key=["환경", "안전"].index)
         out.append(rep)
         merged += len(g) - 1
-    return out, merged
+    out, bundled = bundle(out)
+    return out, merged + bundled
