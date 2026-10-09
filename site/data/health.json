@@ -1,1 +1,1 @@
-{"runAt": "2026-10-09T11:32+09:00", "ok": 347, "total": 352, "saramin": [310, 310], "api": [24, 24], "problems": [], "failed": ["인크루트 환경안전: TIMEOUT 사이트당 150.0초 초과", "이수 채용 포털: TIMEOUT 사이트당 150.0초 초과"]}
+{"runAt": "2026-10-09T13:50+09:00", "ok": 350, "total": 356, "saramin": [314, 314], "api": [24, 25], "problems": [], "failed": ["인크루트 환경안전: TIMEOUT 사이트당 150.0초 초과", "이수 채용 포털: TIMEOUT 사이트당 150.0초 초과", "한화 채용 (API): API URLError: <urlopen error timed out>"]}

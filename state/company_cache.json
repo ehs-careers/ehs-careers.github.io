@@ -1691,5 +1691,2332 @@
 "salary_max": 7930,
 "salary_reliability": "보통",
 "fetched": "2026-10-09"
+},
+"대주산업": {
+"csn": "SS9tVk8wL0dFY0ZKR2xDSlN5QlFtUT09",
+"employees": 176,
+"salary_year": 2025,
+"avg_salary": 5088,
+"salary_min": 3133,
+"salary_max": 6288,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"카카오페이": {
+"csn": "K1o4KzhpYno3cHcxZFlmNnJ5a01qQT09",
+"form": "1000대기업, 대기업, 코스피, 주식회사, 외부감사법인",
+"employees": 1265,
+"salary_year": 2025,
+"avg_salary": 9317,
+"salary_min": 4905,
+"salary_max": 11883,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"프랑크린오프쇼어코리아": {
+"csn": "MTRnTW14VkZvcDJtWGh1QWhpWmI4QT09",
+"fetched": "2026-10-09"
+},
+"이에스인터네셔널": {
+"csn": "aVVnbTRSRCtQY2J3cTQ3ZForbldNUT09",
+"form": "중소기업, 외국 법인기업, 주식회사, 연구소, 수출입 기업",
+"employees": 19,
+"salary_year": 2025,
+"avg_salary": 6457,
+"salary_min": 3553,
+"salary_max": 7459,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"선우": {
+"csn": "M3NtOWhrTk9MVmFCRFB0ZWd6NFdSQT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 91,
+"salary_year": 2025,
+"avg_salary": 8362,
+"salary_min": 4087,
+"salary_max": 8801,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"엘레멘트머티리얼즈테크놀러지수원": {
+"csn": "ckg0eThBVXpUc1kvckRISUZWRVZ2dz09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 17,
+"fetched": "2026-10-09"
+},
+"금호리조트": {
+"csn": "Y3praVREeitIK3d0dW52ejZZMGVadz09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 66,
+"salary_year": 2025,
+"avg_salary": 6204,
+"salary_min": 3425,
+"salary_max": 6935,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"태종에프디": {
+"csn": "aytHT0l6anB4S1M2MnlybzZIY3lXQT09",
+"form": "1000대기업, 주식회사, 외부감사법인, 연구소",
+"employees": 34,
+"salary_year": 2025,
+"avg_salary": 4285,
+"salary_min": 2805,
+"salary_max": 5552,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"리치프로덕츠코리아유한책임회사": {
+"csn": "WWwrOVN0Smp4Mmk1cm40eWMxa2J5UT09",
+"form": "중소기업, 외국인 투자기업, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 7083,
+"salary_min": 3656,
+"salary_max": 7573,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한국미우라공업": {
+"csn": "d2d1cGwxcnhWQmNUanZNSXBBWTVOdz09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 370,
+"salary_year": 2025,
+"avg_salary": 7491,
+"salary_min": 3912,
+"salary_max": 8183,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"미소": {
+"csn": "M0lBREVwaEdxSHNab1gzYjROSDZwZz09",
+"form": "중소기업, 외국인 투자기업, 유한회사",
+"fetched": "2026-10-09"
+},
+"바우머코리아": {
+"csn": "bmtYWDNBQ1pMaytPM09lYUZQRUNTUT09",
+"form": "중소기업, 외국 법인기업, 주식회사",
+"employees": 11,
+"salary_year": 2025,
+"avg_salary": 6714,
+"salary_min": 3580,
+"salary_max": 7871,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"헬러코리아": {
+"csn": "TW1qNW9LaEU3bGJ0RE8vMHcxOG5Jdz09",
+"employees": 228,
+"salary_year": 2025,
+"avg_salary": 6036,
+"salary_min": 3435,
+"salary_max": 7794,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"메탈다인코리아": {
+"csn": "c2svRGNoZ1hFMm9kQTUzSExQd2pMZz09",
+"form": "중소기업, 외국인 투자기업, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 7686,
+"salary_min": 3840,
+"salary_max": 7846,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"엘에스오토모티브테크놀로지스": {
+"csn": "a0xOVFoxRElKK2QvT0Fib1duaDhyZz09",
+"form": "대기업, 주식회사",
+"fetched": "2026-10-09"
+},
+"옵토닉스": {
+"csn": "QVdFSENuUjI4Ly83YVhZblZJTHRGdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인",
+"employees": 162,
+"salary_year": 2025,
+"avg_salary": 5115,
+"salary_min": 3102,
+"salary_max": 6380,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"부루벨코리아": {
+"csn": "YzFwOUZSQS9xMmU1Z20zRE1hMDBpQT09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 1024,
+"fetched": "2026-10-09"
+},
+"메크툴코리아": {
+"csn": "L3VxclR2U2xiY3YzYlJLenM3UzdrUT09",
+"form": "중소기업, 외국 법인기업, 주식회사, 수출입 기업",
+"employees": 8,
+"salary_year": 2025,
+"avg_salary": 7464,
+"salary_min": 4004,
+"salary_max": 7787,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"사합": {
+"csn": "N1BHN0NLd2hBb1BsMnZ3eUNtWGV4Zz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인",
+"employees": 104,
+"salary_year": 2025,
+"avg_salary": 4070,
+"salary_min": 2707,
+"salary_max": 5437,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한국에스지에스": {
+"csn": "ekZ1a1grSWwrUjg0b1haVXpNRWtMZz09",
+"employees": 1078,
+"salary_year": 2025,
+"avg_salary": 7866,
+"salary_min": 3643,
+"salary_max": 9259,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"케이씨글라스": {
+"csn": "bTZ1MXE5ZDIrblF1Y09wdVN3dURpQT09",
+"form": "1000대기업, 중소기업, 주식회사, 외부감사법인, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"바이탈에어코리아": {
+"csn": "QmsyL0RWcWpnazRPMEhxcHQ0a010QT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 181,
+"salary_year": 2025,
+"avg_salary": 5874,
+"salary_min": 3312,
+"salary_max": 6681,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"마스오토": {
+"csn": "eTExSU8yQXhoVkJXZWQwOWRMRjJuZz09",
+"form": "중소기업, 외국 법인기업, 주식회사, 연구소",
+"employees": 16,
+"salary_year": 2025,
+"avg_salary": 7887,
+"salary_min": 3856,
+"salary_max": 8938,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"시아스": {
+"csn": "YnBCTE0raGtQdDcxMkVVMzFmeDlNQT09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인, 병역특례 인증업체",
+"salary_year": 2025,
+"avg_salary": 5485,
+"salary_min": 3607,
+"salary_max": 7025,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"이시스코스메틱": {
+"csn": "Z3ZadDgwQnQ2Qk92OHlvdmhMODVFQT09",
+"form": "1000대기업, 중소기업",
+"employees": 112,
+"salary_year": 2025,
+"avg_salary": 4501,
+"salary_min": 3011,
+"salary_max": 5960,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"인스파이어인티그레이티드리조트": {
+"csn": "SmFBODZOR0pTQzhzRXd3UFc2a0xxZz09",
+"form": "기타, 외국 법인기업, 주식회사",
+"salary_year": 2025,
+"avg_salary": 6056,
+"salary_min": 3425,
+"salary_max": 7358,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"부산케이블앤엔지니어링": {
+"csn": "b0hEdVBnSmNJZjhIbVFoaUVabVdzUT09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 415,
+"salary_year": 2025,
+"avg_salary": 5462,
+"salary_min": 3527,
+"salary_max": 6437,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"피에스지": {
+"csn": "bnliOFA2b3Bpc3NhaUMwa2JuQ2x3UT09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인",
+"fetched": "2026-10-09"
+},
+"이비덴그라파이트코리아": {
+"csn": "QXNNMXRIUTBkcXMyVFhoUjVLdHpMZz09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 105,
+"salary_year": 2025,
+"avg_salary": 6877,
+"salary_min": 3847,
+"salary_max": 7471,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"대주중공업": {
+"csn": "WGkrNU5UQmFabWMwR3VMT1p5ZkhHQT09",
+"fetched": "2026-10-09"
+},
+"한국카본": {
+"csn": "ZGVqaHRUY3U5NnlUS3BUaFdQby95Zz09",
+"form": "1000대기업, 중견기업, 코스피, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 853,
+"salary_year": 2025,
+"avg_salary": 5601,
+"salary_min": 3170,
+"salary_max": 7049,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"은석학원": {
+"csn": "UXBsdEZvWkR4OGVHK3ZvZUR2UUpTZz09",
+"fetched": "2026-10-09"
+},
+"알서포트": {
+"csn": "VTNUYVpjMzVncjk0VVc0ZWdjT2JmQT09",
+"form": "중소기업, 코스닥, 외국인 투자기업, 외부감사법인, 연구소, 병역특례 인증업체, 수출입 기업",
+"employees": 266,
+"salary_year": 2025,
+"avg_salary": 6463,
+"salary_min": 3425,
+"salary_max": 8381,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한국수출포장공업안성공장": {
+"csn": "M2F6bFJNQlFkYjRWaURCT3dzdTg0Zz09",
+"form": "1000대기업, 주식회사",
+"fetched": "2026-10-09"
+},
+"지에스이피에스": {
+"csn": "OWRGdGYyR3ZTV21OS2NsWWhCU2cxdz09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인",
+"employees": 282,
+"fetched": "2026-10-09"
+},
+"한국석유공업": {
+"csn": "dTlrcjJJQXdVMkg2TDJpMGUwSmdwUT09",
+"form": "1000대기업, 중견기업, 코스피, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 211,
+"salary_year": 2025,
+"avg_salary": 6426,
+"salary_min": 3535,
+"salary_max": 7523,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"신흥정밀": {
+"csn": "NkxMaHFBVzNDdDdxNnQvUWJBQ1RmZz09",
+"form": "1000대기업, 중견기업, 외부감사법인, 수출입 기업",
+"employees": 158,
+"salary_year": 2025,
+"avg_salary": 6596,
+"salary_min": 3473,
+"salary_max": 7305,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"현대리바트엠앤에스": {
+"csn": "RnNUanIxMEdjVHZHaE1QOUdFcnBhdz09",
+"form": "대기업, 외부감사법인, 수출입 기업",
+"employees": 233,
+"salary_year": 2025,
+"avg_salary": 5824,
+"salary_min": 3351,
+"salary_max": 6950,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"듀폰스페셜티프로덕츠코리아": {
+"csn": "Q1FWclRFTGg4SG1tTVlSN0pIT2FBUT09",
+"form": "중소기업, 외국인 투자기업, 유한회사",
+"salary_year": 2025,
+"avg_salary": 10267,
+"salary_min": 5029,
+"salary_max": 11242,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"마크애니": {
+"csn": "RlZrVU5XMEdPaElZTGRuZlZHYzh1dz09",
+"form": "중소기업, 외국인 투자기업, 외부감사법인",
+"employees": 178,
+"salary_year": 2025,
+"avg_salary": 7464,
+"salary_min": 3681,
+"salary_max": 8457,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"볼보그룹코리아": {
+"csn": "dUVMaXlFenlVK1ZaTEg5a1o3enZYUT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 1047,
+"salary_year": 2025,
+"avg_salary": 9562,
+"salary_min": 4474,
+"salary_max": 10440,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"롯데패키징솔루션즈": {
+"csn": "NWh4REdZQU5ydzNuZGYwZHhhbDFCQT09",
+"employees": 492,
+"salary_year": 2025,
+"avg_salary": 8971,
+"salary_min": 4123,
+"salary_max": 9402,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"엔씨케이": {
+"csn": "eU9wNUJ2T1p0ZUNZQlhVNDk0M20rQT09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 333,
+"salary_year": 2025,
+"avg_salary": 7201,
+"salary_min": 3841,
+"salary_max": 8839,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"심텍": {
+"csn": "Rk1hSzI4UDlHczNkR1NxbmNzVExDZz09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사",
+"employees": 2618,
+"fetched": "2026-10-09"
+},
+"엔씨티": {
+"csn": "R2dWRFYyRU9sY3JRQjF6WS9mWHIzdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 6,
+"salary_year": 2025,
+"avg_salary": 7080,
+"salary_min": 3942,
+"salary_max": 8021,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"지오디스코리아": {
+"csn": "QjhzT2o5WGJGejE0a05sK1JCbnljUT09",
+"employees": 82,
+"salary_year": 2025,
+"avg_salary": 6932,
+"salary_min": 3828,
+"salary_max": 7614,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한국세큐리트": {
+"csn": "TVh2bWgyQWVpWjl5U1VBV1gzMEUvdz09",
+"form": "1000대기업, 중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 241,
+"salary_year": 2025,
+"avg_salary": 8883,
+"salary_min": 4387,
+"salary_max": 9613,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"바이엘코리아": {
+"csn": "TEg0REtWc2JDbFNWRWZTU1pNdVB4UT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 284,
+"salary_year": 2025,
+"avg_salary": 10159,
+"salary_min": 5372,
+"salary_max": 11277,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한국앱티브커넥션시스템즈유한책임회사": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"세스코": {
+"csn": "dXdnbzRLUktMeGZDMWVxMkVIR3dldz09",
+"form": "1000대기업, 중견기업, 외부감사법인",
+"employees": 3811,
+"fetched": "2026-10-09"
+},
+"토스뱅크": {
+"csn": "RkNuOWVqSnFwYnI4bXRYUVVsMlNIQT09",
+"employees": 848,
+"salary_year": 2025,
+"avg_salary": 9773,
+"salary_min": 4688,
+"salary_max": 12762,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"이베르코": {
+"csn": "QnhoMkpIQ1pPVmN0R1NhVWg4ZnRCZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 사단법인, 수출입 기업",
+"employees": 10,
+"salary_year": 2025,
+"avg_salary": 6514,
+"salary_min": 3571,
+"salary_max": 7221,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"유나이티드파슬서비스코리아": {
+"csn": "Y29FQjhsTkV5S2RkMlhEMlhFY3N3QT09",
+"form": "중견기업, 외국인 투자기업, 주식회사",
+"employees": 353,
+"fetched": "2026-10-09"
+},
+"톱텍": {
+"csn": "dG9sWUlSMTg1aEV6bzN0dWJTcVVGQT09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 407,
+"salary_year": 2025,
+"avg_salary": 7205,
+"salary_min": 3824,
+"salary_max": 8407,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"천일정기화물자동차": {
+"csn": "bzQxVkdsTWdjamk4VWJHMVRFSXVWdz09",
+"form": "1000대기업, 중견기업, 주식회사, 외부감사법인",
+"employees": 203,
+"salary_year": 2025,
+"avg_salary": 5240,
+"salary_min": 3128,
+"salary_max": 6129,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"디에이피": {
+"csn": "ZGN1MkYxM1F5VkVTclM0WWRFM3BGQT09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 1057,
+"salary_year": 2025,
+"avg_salary": 5401,
+"salary_min": 3605,
+"salary_max": 6973,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"김포골드라인에스알에스": {
+"csn": "eVI2STFqelZMd01GZzNUeWpoc0tEZz09",
+"form": "대기업, 주식회사",
+"employees": 202,
+"salary_year": 2025,
+"avg_salary": 5210,
+"salary_min": 3118,
+"salary_max": 6853,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"디케이오스텍": {
+"csn": "WGJINnd6QWx4dlE5VkdWK1BRekFMdz09",
+"form": "중소기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 5262,
+"salary_min": 3250,
+"salary_max": 6455,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"티아이씨": {
+"csn": "V3V4ZkZQOVE5azQzWUFtZUxqWG9VUT09",
+"employees": 254,
+"fetched": "2026-10-09"
+},
+"케이디코퍼레이션": {
+"csn": "T0NDVHdBZ0VUYWZ4aGFyc0g3b2ZKdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 55,
+"salary_year": 2025,
+"avg_salary": 5542,
+"salary_min": 3492,
+"salary_max": 7127,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"아트라스콥코코리아": {
+"csn": "MzVXcnBkZnVZNDhPT212dEVxclNYUT09",
+"employees": 401,
+"salary_year": 2025,
+"avg_salary": 8661,
+"salary_min": 4352,
+"salary_max": 9422,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한국산노프코": {
+"csn": "M2x3MEZTR2VFWXFuUjA4MjRvSDJjQT09",
+"employees": 79,
+"salary_year": 2025,
+"avg_salary": 7613,
+"salary_min": 4081,
+"salary_max": 8431,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"베바스토코리아홀딩스": {
+"csn": "VW9kWHYrUXVFUkJERnBIWG0xV3ppQT09",
+"form": "중견기업, 외국 법인기업, 외부감사법인, 수출입 기업",
+"employees": 446,
+"salary_year": 2025,
+"avg_salary": 9218,
+"salary_min": 4384,
+"salary_max": 9536,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"바우와우코리아": {
+"csn": "UVJrNlh6MnVRbUE4MmUyNTY3QUQ5Zz09",
+"form": "대기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 64,
+"salary_year": 2025,
+"avg_salary": 4348,
+"salary_min": 2893,
+"salary_max": 5365,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"포보코리아": {
+"csn": "OTlRdS9od2QxRmF3YklPR1ptNDNyUT09",
+"fetched": "2026-10-09"
+},
+"소니코리아": {
+"csn": "NDRIY2VlcTdYNUlIa2dsUEJBdzNGQT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 114,
+"salary_year": 2025,
+"avg_salary": 9771,
+"salary_min": 5111,
+"salary_max": 10997,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"씨제이텔레닉스": {
+"csn": "VEgwb1d4SVlVYmVwL1lrUjVEclMxQT09",
+"form": "1000대기업, 대기업, 외부감사법인",
+"employees": 1188,
+"salary_year": 2025,
+"avg_salary": 4532,
+"salary_min": 2946,
+"salary_max": 5371,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한화에어로스페이스": {
+"csn": "czZ2bkg3d1RqSFFkSXFEdjRiOURVZz09",
+"form": "1000대기업, 대기업, 코스피, 외부감사법인, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 12411,
+"salary_min": 5381,
+"salary_max": 12573,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"만도브로제": {
+"csn": "VitqYjZYV1ZWVkhwSWgxVE5rNlJGdz09",
+"form": "대기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 263,
+"salary_year": 2025,
+"avg_salary": 8595,
+"salary_min": 4321,
+"salary_max": 9184,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"인터텍킴스코": {
+"csn": "eE4vU2RVTjNLQi9VaUxTTm13TTB5Zz09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인",
+"fetched": "2026-10-09"
+},
+"소모": {
+"csn": "WTFBQTZyWWt3cDVFWlJyUW5GTTJkZz09",
+"employees": 223,
+"salary_year": 2025,
+"avg_salary": 4769,
+"salary_min": 3021,
+"salary_max": 7234,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"씨제이대한통운": {
+"csn": "UzN4WTdHK01welRxYklIVFRLWE12QT09",
+"form": "1000대기업, 대기업, 코스피, 주식회사",
+"employees": 6077,
+"salary_year": 2025,
+"avg_salary": 7517,
+"salary_min": 3769,
+"salary_max": 8174,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"풀무원푸드앤컬처": {
+"csn": "VERCVXhvdmF1aTJyMWVoRmJwcXF3QT09",
+"form": "1000대기업, 중견기업, 주식회사, 외부감사법인",
+"employees": 2744,
+"salary_year": 2025,
+"avg_salary": 5385,
+"salary_min": 3033,
+"salary_max": 6346,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"레신저스": {
+"csn": "SHZWTXBxRE1hNE9mZ3FiYnBGcEcvdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 연구소",
+"employees": 42,
+"salary_year": 2025,
+"avg_salary": 6502,
+"salary_min": 3606,
+"salary_max": 7263,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"삼성물산": {
+"csn": "b0VQczJNYk92ZFlPS0NNVXZzVXlVUT09",
+"form": "1000대기업, 대기업, 코스피, 외부감사법인",
+"salary_year": 2025,
+"avg_salary": 12296,
+"salary_min": 5956,
+"salary_max": 11295,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"씨티알": {
+"csn": "aWY1bFVDNTIxalVMWDN6WXZZWE1jUT09",
+"form": "1000대기업, 중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 543,
+"fetched": "2026-10-09"
+},
+"엘에스엠트론": {
+"csn": "MGhuZDZIUERjeHVjWUwrbEsvSFZhZz09",
+"form": "1000대기업, 대기업, 코스피",
+"employees": 106,
+"salary_year": 2025,
+"avg_salary": 9838,
+"salary_min": 4739,
+"salary_max": 10752,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"아이리스코리아": {
+"csn": "UDV1Umw2SFNDbU4yOGxFZ3Yzd3ZGUT09",
+"form": "중견기업, 외국 법인기업, 주식회사, 외부감사법인",
+"employees": 78,
+"fetched": "2026-10-09"
+},
+"에스케이일렉링크": {
+"csn": "a0EzcVVOVXZDNnZYVi9qMDZzTC96Zz09",
+"form": "대기업, 주식회사",
+"employees": 95,
+"salary_year": 2025,
+"avg_salary": 8578,
+"salary_min": 4478,
+"salary_max": 10724,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"휴젤": {
+"csn": "QnNLM001SFRBWGk1ODlCcHd4NlNTUT09",
+"form": "대기업, 코스닥, 주식회사",
+"employees": 638,
+"salary_year": 2025,
+"avg_salary": 6468,
+"salary_min": 3487,
+"salary_max": 8058,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"씰리코리아컴퍼니": {
+"csn": "N0syVkNub1ltK25qdlRmU2huMFpwUT09",
+"form": "중소기업, 외국인 투자기업, 유한회사, 외부감사법인",
+"fetched": "2026-10-09"
+},
+"한국이콜랩": {
+"csn": "MGNLbDhBcXBuamREeHNoRENVWTVtZz09",
+"form": "중소기업, 외국인 투자기업, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 8671,
+"salary_min": 4148,
+"salary_max": 9719,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"쿠리타한수": {
+"csn": "RUhydTN4ZFd0RWEyWUdiMHN1dWxHZz09",
+"form": "중소기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"캐논코리아": {
+"csn": "U0dVcGtWbXI4T0s2MlhCS2FjK0RqZz09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 1182,
+"salary_year": 2025,
+"avg_salary": 7855,
+"salary_min": 3877,
+"salary_max": 8606,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"버슘머트리얼즈코리아": {
+"csn": "cTdJQVgyWWllUUwyeE1vbHV0Zjdjdz09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 433,
+"salary_year": 2025,
+"avg_salary": 9555,
+"salary_min": 4800,
+"salary_max": 12198,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"태영건설": {
+"csn": "Q1FtRC9INW9NY2FmRTdPOVRRMURNdz09",
+"form": "1000대기업, 대기업, 코스피, 주식회사, 외부감사법인",
+"employees": 1061,
+"fetched": "2026-10-09"
+},
+"제니스오토텍": {
+"csn": "OXNhTVA0WXNHczMzZFQyVEZkOVluZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 57,
+"salary_year": 2025,
+"avg_salary": 5827,
+"salary_min": 3458,
+"salary_max": 7113,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"에스지생활안전": {
+"csn": "eGo3QmVEa3lZTXlUTG5OR21rRUNEUT09",
+"form": "1000대기업, 대기업, 주식회사",
+"employees": 218,
+"fetched": "2026-10-09"
+},
+"가드너덴버코리아": {
+"csn": "bmg3M3AzOU5mRDNHMVdPZGtpQ2ZEdz09",
+"form": "중소기업, 외국 법인기업, 수출입 기업",
+"employees": 67,
+"salary_year": 2025,
+"avg_salary": 8484,
+"salary_min": 4377,
+"salary_max": 8829,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한국드레가": {
+"csn": "Q2Ywd2FqMUxHYmI3ZmVXRysxdE9Gdz09",
+"employees": 59,
+"salary_year": 2025,
+"avg_salary": 8031,
+"salary_min": 4109,
+"salary_max": 9607,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"케이티텔레캅": {
+"csn": "YnkrZk9OTDVDM29ra0lXZDNVMDNQZz09",
+"form": "1000대기업, 대기업, 외부감사법인",
+"employees": 2401,
+"salary_year": 2025,
+"avg_salary": 6068,
+"salary_min": 3609,
+"salary_max": 6423,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"국제엘렉트릭코리아": {
+"csn": "eEdRQUh2SDdQWVRxRW1pS1JNUmxoUT09",
+"employees": 344,
+"salary_year": 2025,
+"avg_salary": 9545,
+"salary_min": 4419,
+"salary_max": 11050,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"다이킨화인테크코리아": {
+"csn": "aE1lV2IzaVBNYmQ1am4wQXB5VFJ6Zz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 116,
+"salary_year": 2025,
+"avg_salary": 5882,
+"salary_min": 3407,
+"salary_max": 7240,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"에스코피티이엘티디": {
+"csn": "cHVscHEvV0sxaHBEVzN2VkloTUEwUT09",
+"form": "중소기업, 외국 법인기업",
+"employees": 20,
+"salary_year": 2025,
+"avg_salary": 6416,
+"salary_min": 3521,
+"salary_max": 7531,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"무인양품": {
+"csn": "dWsyUFEzdXg1S0xkVUJhMFFBUkZzdz09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 1351,
+"salary_year": 2025,
+"avg_salary": 3113,
+"salary_min": 2552,
+"salary_max": 5406,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"샤든코리아": {
+"csn": "YnlWdDh1TXNZTFJmYjVDRTZyVlpoZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 30,
+"salary_year": 2025,
+"avg_salary": 6085,
+"salary_min": 3712,
+"salary_max": 7159,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"클럽데몬스트레이션서비스코리아": {
+"csn": "dTlzNjRLTkFnTzdCeHBEZkRmb280UT09",
+"form": "중소기업, 외국 법인기업",
+"employees": 622,
+"salary_year": 2025,
+"avg_salary": 3055,
+"salary_min": 2407,
+"salary_max": 5594,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"코리아웨코스타": {
+"csn": "dXVxMDJFNVluRU1DTE92dWxkNmYyUT09",
+"employees": 69,
+"salary_year": 2025,
+"avg_salary": 6849,
+"salary_min": 3731,
+"salary_max": 7446,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"국제전기": {
+"csn": "VkhwTlBvVDhGZ2I1ZC9BY1hNYWp6dz09",
+"form": "1000대기업, 중소기업, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 179,
+"salary_year": 2025,
+"avg_salary": 7145,
+"salary_min": 3685,
+"salary_max": 7450,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"서진산업": {
+"csn": "QUROTDJiYTJieURJcDgvK1hVVklwUT09",
+"form": "1000대기업, 중견기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 678,
+"salary_year": 2025,
+"avg_salary": 9376,
+"salary_min": 4201,
+"salary_max": 10252,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"현대모비스": {
+"csn": "eWIvVTNFQnh4T2ErYTI5U3NweUtjQT09",
+"form": "1000대기업, 대기업, 코스피, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 12123,
+"salary_year": 2025,
+"avg_salary": 13693,
+"salary_min": 5737,
+"salary_max": 13745,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"명화공업": {
+"csn": "Tk5hYUxUZWR4VUd2WVlxWExuVEUzQT09",
+"form": "1000대기업, 중견기업, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 192,
+"salary_year": 2025,
+"avg_salary": 8584,
+"salary_min": 4109,
+"salary_max": 9006,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한덕철광산업": {
+"csn": "R3Z1bFBFMFphdTI0K1BGNkEwMTVWUT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 79,
+"salary_year": 2025,
+"avg_salary": 7498,
+"salary_min": 4014,
+"salary_max": 8033,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"고려대학교세종캠퍼스": {
+"csn": "ZkFNcVU0ZDFXUERrOW1oUjczKzFMZz09",
+"form": "1000대기업, 학교/교육기관",
+"employees": 245,
+"salary_year": 2025,
+"avg_salary": 4178,
+"salary_min": 2720,
+"salary_max": 5502,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"농업회사법인순우리": {
+"csn": "MmVoejNJR2pJT3I5Z3phajhMaW9uUT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 35,
+"salary_year": 2025,
+"avg_salary": 5337,
+"salary_min": 3232,
+"salary_max": 6237,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"링키지랩": {
+"csn": "bEtqeVNYcllOQklqYjc5R2lFcDh1UT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 236,
+"salary_year": 2025,
+"avg_salary": 3541,
+"salary_min": 2617,
+"salary_max": 6268,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"발레오모빌리티코리아": {
+"csn": "bld3L3IxWU1PN0Z1Y1V6WHlSVFVtQT09",
+"form": "중소기업, 외국 법인기업, 주식회사, 수출입 기업",
+"employees": 253,
+"salary_year": 2025,
+"avg_salary": 7387,
+"salary_min": 3864,
+"salary_max": 8810,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"켐트로닉스": {
+"csn": "dEdDREFJQmF3Q0s0YWZjd1FhNUdlZz09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사, 외부감사법인, 연구소, 병역특례 인증업체, 수출입 기업",
+"employees": 631,
+"salary_year": 2025,
+"avg_salary": 5764,
+"salary_min": 3214,
+"salary_max": 7321,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"에스비아이코스머니": {
+"csn": "bUxsMmszQUh1Mm1yaG91b0xsMlFKUT09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 35,
+"fetched": "2026-10-09"
+},
+"에드워드코리아": {
+"csn": "RDVuVzVBVm00M1NScmkrN2dzUVFwZz09",
+"employees": 1533,
+"salary_year": 2025,
+"avg_salary": 8568,
+"salary_min": 3902,
+"salary_max": 8935,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"베이어레프코리아": {
+"csn": "RGp0K3hvWExIN2E5MjVFWUJXWlNnQT09",
+"form": "중견기업, 외국 법인기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 52,
+"salary_year": 2025,
+"avg_salary": 6086,
+"salary_min": 3685,
+"salary_max": 7240,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"해비치호텔앤드리조트": {
+"csn": "cXhSeWdXUDI5eVpXS210aHByNHZqdz09",
+"form": "대기업, 외부감사법인",
+"employees": 1074,
+"salary_year": 2025,
+"avg_salary": 4942,
+"salary_min": 2887,
+"salary_max": 6192,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"와이어트": {
+"csn": "OEtNK3YzTFNTTDdDOGpvSWlUbDFtQT09",
+"employees": 246,
+"fetched": "2026-10-09"
+},
+"미원상사&관계사": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"이케아코리아": {
+"csn": "bEZrc3pNY3NHL0JXN0lrdkV2NDhUdz09",
+"form": "중견기업, 외국 법인기업, 유한회사",
+"salary_year": 2025,
+"avg_salary": 4165,
+"salary_min": 2831,
+"salary_max": 5130,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"포스코이앤씨": {
+"csn": "UVN1SitrdEJwUWRadXlyRDlQRDVuZz09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 5519,
+"salary_year": 2025,
+"avg_salary": 9603,
+"salary_min": 4649,
+"salary_max": 10421,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"시몬스": {
+"csn": "OWYxVUpPUXJKaVBIR3NWRnJNMWo4dz09",
+"form": "1000대기업, 중견기업, 외부감사법인, 수출입 기업",
+"employees": 701,
+"fetched": "2026-10-09"
+},
+"밸류엔지니어링": {
+"csn": "UFo0YzRZTEF6L2lMclV6em5zVjE4QT09",
+"form": "1000대기업, 중소기업, 주식회사, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"아이피아이테크논산사업장": {
+"csn": "RFB0MENiZ3Qvd0hmalUybmJ1NDdRQT09",
+"employees": 20,
+"salary_year": 2025,
+"avg_salary": 5268,
+"salary_min": 3093,
+"salary_max": 6505,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"모간": {
+"csn": "aDlacURtMWROMWtjcW1acHFDMmI2UT09",
+"employees": 208,
+"salary_year": 2025,
+"avg_salary": 8691,
+"salary_min": 4394,
+"salary_max": 9482,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"커민스판매써비스코리아": {
+"csn": "T3dXZkZkaUF0UFNrUmx3WE1CSEtXQT09",
+"employees": 77,
+"salary_year": 2025,
+"avg_salary": 9144,
+"salary_min": 4709,
+"salary_max": 9492,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"에코심플렉스": {
+"csn": "QkpJVmpCOERMS0piU2s0MmRGZHJ1QT09",
+"employees": 88,
+"salary_year": 2025,
+"avg_salary": 4736,
+"salary_min": 3047,
+"salary_max": 5600,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"롯데웰푸드": {
+"csn": "emU0YlRmWHozKyt5eHJvTFNXNlpoZz09",
+"form": "1000대기업, 대기업, 코스피",
+"employees": 3681,
+"salary_year": 2025,
+"avg_salary": 6032,
+"salary_min": 3596,
+"salary_max": 7365,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"덕산테코피아": {
+"csn": "QWNIMlRxYlNmZy9UQmJtTWNSaVh5dz09",
+"form": "중소기업, 코스닥, 주식회사",
+"employees": 95,
+"fetched": "2026-10-09"
+},
+"한진피엘경주공장": {
+"csn": "RC9wajZRTkI0TGVpMGd3MklwYzBFQT09",
+"form": "1000대기업, 주식회사",
+"employees": 53,
+"fetched": "2026-10-09"
+},
+"켐코": {
+"csn": "Q0I2bHltQmp2V2FmSnBQV1pROFR5dz09",
+"form": "대기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 156,
+"fetched": "2026-10-09"
+},
+"큐로젠": {
+"csn": "b3RENE9JdmlCQ1lkUDRHZk5PazNGdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 연구소, 병역특례 인증업체",
+"employees": 47,
+"salary_year": 2025,
+"avg_salary": 5068,
+"salary_min": 3131,
+"salary_max": 7343,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"에누마코리아": {
+"csn": "NU41c25JUXpWMGZ1bEFNekpnS2R1Zz09",
+"form": "중소기업, 외국 법인기업, 주식회사",
+"fetched": "2026-10-09"
+},
+"세나테크놀로지": {
+"csn": "WXBuOXJ5TWd1SlNYN21EdThMemdCQT09",
+"form": "대기업, 코스닥, 주식회사, 수출입 기업",
+"employees": 135,
+"salary_year": 2025,
+"avg_salary": 6905,
+"salary_min": 3663,
+"salary_max": 8803,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"아라마크": {
+"csn": "ZmlMK1FQUFlHV1ZoMjlscFhnTWc4Zz09",
+"salary_year": 2025,
+"avg_salary": 4441,
+"salary_min": 2761,
+"salary_max": 5974,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"코리아휠": {
+"csn": "ZjlVK2xYMVZjaXZycHpQN2Z4K2haZz09",
+"employees": 171,
+"salary_year": 2025,
+"avg_salary": 7987,
+"salary_min": 4001,
+"salary_max": 8055,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"현대글로비스": {
+"csn": "cGdRT3RvMWRBZEY2UWxZVTkyNHRPZz09",
+"form": "1000대기업, 대기업, 코스피, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 2095,
+"salary_year": 2025,
+"avg_salary": 11500,
+"salary_min": 5328,
+"salary_max": 11862,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"나인벨": {
+"csn": "OWR5SDNMVyszdzRldFlPb0ovWHdOUT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 연구소, 병역특례 인증업체, 수출입 기업",
+"employees": 136,
+"salary_year": 2025,
+"avg_salary": 6936,
+"salary_min": 3567,
+"salary_max": 9007,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"해밀톤관광": {
+"csn": "ZlN3eUY4eXNRUmRLblc2UDZNcnBCZz09",
+"employees": 53,
+"salary_year": 2025,
+"avg_salary": 4724,
+"salary_min": 3019,
+"salary_max": 5464,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"로이드인증원": {
+"csn": "RmlLQTNaSEs5WXJjRWN5STVPUnZodz09",
+"form": "중소기업, 외국 법인기업",
+"employees": 44,
+"salary_year": 2025,
+"avg_salary": 8525,
+"salary_min": 4292,
+"salary_max": 9372,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"메디씽큐": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"나전": {
+"csn": "ekNCdTVtVEFHOVVXTVF3blh0SDIzdz09",
+"employees": 87,
+"salary_year": 2025,
+"avg_salary": 8622,
+"salary_min": 4272,
+"salary_max": 8753,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"지멘스헬시니어스": {
+"csn": "MUpKUTJncHJyRXFVSi9tbDNmUVRmZz09",
+"form": "대기업, 외국인 투자기업",
+"employees": 1367,
+"fetched": "2026-10-09"
+},
+"코아사글로벌": {
+"csn": "SFkxblR4NFVaNjNMSERIV01VNkFvdz09",
+"form": "중소기업, 외국 법인기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 102,
+"salary_year": 2025,
+"avg_salary": 3857,
+"salary_min": 2675,
+"salary_max": 4845,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"우리산업": {
+"csn": "ZTBWTTN5YnNSZ0xvdDBZRTBpSGxUdz09",
+"form": "1000대기업, 대기업, 코스닥, 주식회사",
+"employees": 345,
+"salary_year": 2025,
+"avg_salary": 6741,
+"salary_min": 3645,
+"salary_max": 7579,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"선진": {
+"csn": "VThGY1l3UllKN2pWRHpNY2hoTjg2UT09",
+"form": "1000대기업, 대기업, 코스피, 주식회사",
+"fetched": "2026-10-09"
+},
+"원프랜트": {
+"csn": "UUNubDV5d2VQRnB6TmVSRlhjKzVCUT09",
+"form": "1000대기업, 중소기업, 주식회사, 외부감사법인",
+"salary_year": 2025,
+"avg_salary": 7346,
+"salary_min": 3863,
+"salary_max": 8365,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국서부발전": {
+"csn": "Y21sRklEQzN4WnNCT09SME5UUG5GZz09",
+"form": "대기업, 외부감사법인, 공사/공기업",
+"employees": 2841,
+"salary_year": 2025,
+"avg_salary": 9709,
+"salary_min": 4898,
+"salary_max": 11347,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"아이티더블유피피앤에프코리아": {
+"csn": "ZmRwK0JWY0lHMVVqZWJxRG9TT0dwQT09",
+"form": "중소기업, 외국인 투자기업, 수출입 기업",
+"employees": 36,
+"fetched": "2026-10-09"
+},
+"니덱모빌리티코리아": {
+"csn": "UE5LcHBDRjFWbW4yK1dkMG1qSkpBQT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 362,
+"salary_year": 2025,
+"avg_salary": 8735,
+"salary_min": 4190,
+"salary_max": 9129,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"천보": {
+"csn": "N2dTNGNLUDBhZStiN1UvKzQ5LzdiUT09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사, 연구소, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 5080,
+"salary_min": 3813,
+"salary_max": 6755,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"흥화": {
+"csn": "eFgwVzdmMFBEbmVNQmNUc3Q1ZmpZZz09",
+"form": "1000대기업, 중견기업, 주식회사, 외부감사법인, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 8704,
+"salary_min": 4336,
+"salary_max": 9212,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"파르나스호텔": {
+"csn": "Vk9UWFl1OTdNL1dXVmN6eXVWcGVSZz09",
+"form": "1000대기업, 대기업, 외부감사법인",
+"employees": 1344,
+"salary_year": 2025,
+"avg_salary": 6925,
+"salary_min": 3429,
+"salary_max": 7653,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한국의료기기안전정보원": {
+"csn": "eHRiQ1NPWnByL29RUmNWQzlxb21SQT09",
+"form": "기타, 공사/공기업",
+"employees": 116,
+"salary_year": 2025,
+"avg_salary": 5785,
+"salary_min": 3385,
+"salary_max": 7023,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"아사아블로이코리아": {
+"csn": "RjA4RVJRejUycUNVZmRvcW0zWjYvUT09",
+"form": "대기업, 외국 법인기업",
+"employees": 169,
+"salary_year": 2025,
+"avg_salary": 7363,
+"salary_min": 3926,
+"salary_max": 7803,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"신호인더스트리": {
+"csn": "U3FMVHRNVVVsUHJYUTdiZC90NUZpQT09",
+"employees": 79,
+"salary_year": 2025,
+"avg_salary": 7348,
+"salary_min": 3952,
+"salary_max": 7746,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"아디다스코리아유한책임회사": {
+"csn": "dzg3djZVckxzVmR1Q1pBOEZRbkwrUT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 유한회사, 외부감사법인, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 4779,
+"salary_min": 3078,
+"salary_max": 7760,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"지에스아이오토메이션": {
+"csn": "UGpCRmhXeGx3K3FUb1hmb1FtL1JpZz09",
+"form": "1000대기업, 중소기업, 주식회사, 병역특례 인증업체, 수출입 기업",
+"employees": 537,
+"salary_year": 2025,
+"avg_salary": 5311,
+"salary_min": 3224,
+"salary_max": 7118,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"바이오플러스": {
+"csn": "bHMvd2dTbEFjTUszR2FYWGp6NThTUT09",
+"form": "1000대기업, 중소기업, 코스닥, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 206,
+"salary_year": 2025,
+"avg_salary": 6093,
+"salary_min": 3721,
+"salary_max": 7755,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"대상푸드플러스": {
+"csn": "RytCT1I3OHNTS2tOVVNXUDJVK3o1Zz09",
+"form": "1000대기업, 중견기업, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 85,
+"salary_year": 2025,
+"avg_salary": 6620,
+"salary_min": 3680,
+"salary_max": 8054,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"이음": {
+"csn": "a2xvN1hyRWg4VllBY1ZKM1Vadk1CQT09",
+"salary_year": 2025,
+"avg_salary": 8793,
+"salary_min": 4001,
+"salary_max": 7850,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"듀링": {
+"csn": "aW4wZFhBV09HNXVjMmRZaWdINGxFdz09",
+"form": "1000대기업, 중소기업, 외부감사법인",
+"employees": 303,
+"salary_year": 2025,
+"avg_salary": 6580,
+"salary_min": 3655,
+"salary_max": 7483,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"잉카인터넷": {
+"csn": "UHRaNVg3T3VuL0tORkxaaHBEQVpjQT09",
+"employees": 106,
+"salary_year": 2025,
+"avg_salary": 6012,
+"salary_min": 3565,
+"salary_max": 8229,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"인터코엑스": {
+"csn": "eHhOcDVyczhkanNqU3p3SWtueU1WUT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 4,
+"salary_year": 2025,
+"avg_salary": 5452,
+"salary_min": 3482,
+"salary_max": 6077,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"경인전자": {
+"csn": "enFWT041NWVpR1BQbFByb0FhcGRuQT09",
+"employees": 5,
+"salary_year": 2025,
+"avg_salary": 5226,
+"salary_min": 3342,
+"salary_max": 6426,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"파라다이스카지노워커힐": {
+"csn": "aUgrZ2cxZ1ZHcDIwMTlpcDhwakFRQT09",
+"form": "대기업, 코스피, 주식회사",
+"fetched": "2026-10-09"
+},
+"티빙": {
+"csn": "QzFZYmxPQzdHdXZ4YU4xamxrTWhFdz09",
+"employees": 345,
+"salary_year": 2025,
+"avg_salary": 9304,
+"salary_min": 4261,
+"salary_max": 13647,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국앰코스페셜티카톤즈": {
+"csn": "azdmR1p4ZlVmekE1WEh4Z1FIM0w1dz09",
+"form": "중소기업, 외국인 투자기업, 유한회사, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"올리콘발저스코팅코리아": {
+"csn": "R054WE52Q3R3VXRmNHJNRkNqR0EyUT09",
+"form": "중견기업, 외국인 투자기업, 유한회사, 수출입 기업",
+"employees": 77,
+"salary_year": 2025,
+"avg_salary": 7597,
+"salary_min": 3804,
+"salary_max": 7855,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"소노바코리아": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"한국쓰리엠": {
+"csn": "UlFPU3ZxNElGZ0h2TFU1OE9yLzVCUT09",
+"salary_year": 2025,
+"avg_salary": 10449,
+"salary_min": 4660,
+"salary_max": 10871,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"씨이케이": {
+"csn": "MVUrWCtobnVEdmdSMmlkWlNaeHVXdz09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인",
+"employees": 77,
+"salary_year": 2025,
+"avg_salary": 8754,
+"salary_min": 4217,
+"salary_max": 8287,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"나눔누리": {
+"csn": "UFNNVmh0c1ErbkFjUVFjSDBuUkhKUT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 608,
+"salary_year": 2025,
+"avg_salary": 3816,
+"salary_min": 2644,
+"salary_max": 4606,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국엔에스케이": {
+"csn": "bFVIMlpZWld2K1ZLUUhqa2FsaUNwdz09",
+"form": "1000대기업, 중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 9974,
+"salary_min": 4715,
+"salary_max": 10771,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"나이스디앤에스": {
+"csn": "R1dGS0cvTGVqdUZ5YWxHR1A5TzQvQT09",
+"form": "1000대기업, 중소기업",
+"employees": 114,
+"salary_year": 2025,
+"avg_salary": 4818,
+"salary_min": 2993,
+"salary_max": 5870,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"비엔스틸라녹산공장": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"샤프도앤코코리아": {
+"csn": "U2lmaVBIakFpbHBCbG9kNm4relRZdz09",
+"form": "중소기업, 외국인 투자기업, 유한회사, 외부감사법인",
+"salary_year": 2025,
+"avg_salary": 5646,
+"salary_min": 3323,
+"salary_max": 6460,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"모트라스": {
+"csn": "LzZ2bm5kdFRMRE5lcExSUEdlUzVFUT09",
+"form": "대기업, 주식회사",
+"employees": 5052,
+"salary_year": 2025,
+"avg_salary": 10151,
+"salary_min": 4611,
+"salary_max": 10575,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"emcvinacoltd": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"태형리싸이클링": {
+"csn": "VjlJdzVTa2FMWDNUWm5DOWkwSk5kQT09",
+"form": "1000대기업, 중소기업, 주식회사",
+"employees": 20,
+"salary_year": 2025,
+"avg_salary": 6796,
+"salary_min": 3613,
+"salary_max": 8031,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"바이오제닉스": {
+"csn": "Y2JKZkNIeUhGcXZ5MDBqNzNIdUxrZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 63,
+"salary_year": 2025,
+"avg_salary": 6579,
+"salary_min": 3723,
+"salary_max": 7963,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"엔바이콘": {
+"csn": "TTFiQjJadUROaGNqdzh3S1FSaDFlUT09",
+"form": "대기업, 주식회사",
+"employees": 89,
+"salary_year": 2025,
+"avg_salary": 4196,
+"salary_min": 2893,
+"salary_max": 5349,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"한화엔진": {
+"csn": "U0dYRzNEU1ZNcUpQeG9kY0VKZDJhZz09",
+"form": "1000대기업, 대기업, 코스피, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 1010,
+"salary_year": 2025,
+"avg_salary": 10018,
+"salary_min": 4527,
+"salary_max": 10733,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"농업회사법인영풍": {
+"csn": "Tmlsb2lyVXJ6T0pGWkdYcUhoWkoxUT09",
+"form": "1000대기업, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 100,
+"salary_year": 2025,
+"avg_salary": 4702,
+"salary_min": 3023,
+"salary_max": 5936,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"빔모빌리티코리아유한책임회사": {
+"csn": "aWtBUWJVZ0lqbXFMdW1sTzNicnF6Zz09",
+"form": "중소기업, 외국 법인기업, 주식회사",
+"employees": 50,
+"salary_year": 2025,
+"avg_salary": 4882,
+"salary_min": 3026,
+"salary_max": 6795,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국에머슨": {
+"csn": "bzVYYWlSTnArNmxJL095MTZCY054QT09",
+"employees": 308,
+"salary_year": 2025,
+"avg_salary": 9598,
+"salary_min": 4438,
+"salary_max": 10398,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"비렉스테크": {
+"csn": "N1h4TVJZamlUbENKTnRHbllTN2VkZz09",
+"form": "1000대기업, 중소기업",
+"employees": 172,
+"fetched": "2026-10-09"
+},
+"태평양밸브공업": {
+"csn": "ZmR3blVJWForNENXeW5oRUZNeTVHZz09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 54,
+"salary_year": 2025,
+"avg_salary": 6736,
+"salary_min": 3698,
+"salary_max": 7535,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"파이오락스": {
+"csn": "bXJuM1NYTHlTZ2xtaWhsYS96Vmtsdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 136,
+"salary_year": 2025,
+"avg_salary": 5778,
+"salary_min": 3413,
+"salary_max": 6649,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"엘브이아이에스코리아": {
+"csn": "YkY2ME5YZXJVcVpsVXZsVzB5NlZnUT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 연구소",
+"salary_year": 2025,
+"avg_salary": 9146,
+"salary_min": 4348,
+"salary_max": 10567,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"에스에스지페이먼츠": {
+"csn": "M3dKZE03WVFzVVVqYjJvKzhoY1QzZz09",
+"employees": 47,
+"salary_year": 2025,
+"avg_salary": 9802,
+"salary_min": 5116,
+"salary_max": 12216,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"넥슨스페이스": {
+"csn": "Vmw2SVVzUmxubkZmUW0rQUpYR0IyZz09",
+"form": "1000대기업, 대기업, 주식회사",
+"employees": 52,
+"salary_year": 2025,
+"avg_salary": 8652,
+"salary_min": 3867,
+"salary_max": 8990,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"카디널헬스코리아": {
+"csn": "RWhMbjNIUXNsQmt1SDRqbzJyVldsQT09",
+"form": "중소기업, 외국인 투자기업",
+"salary_year": 2025,
+"avg_salary": 9900,
+"salary_min": 4924,
+"salary_max": 10568,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"카이스": {
+"csn": "K3ZuZlhXcUQxNVBja3NXRlh4bzVpdz09",
+"form": "1000대기업, 중견기업",
+"employees": 194,
+"fetched": "2026-10-09"
+},
+"코스비전": {
+"csn": "VWhlN3JYUVVYTXAvQmZ0YVczS0RFZz09",
+"form": "스타트업, 대기업, 외부감사법인",
+"employees": 102,
+"salary_year": 2025,
+"avg_salary": 7238,
+"salary_min": 3734,
+"salary_max": 7714,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"선인": {
+"csn": "MmRnTmNWd3NKYTRzOVJlVUZNOG9oQT09",
+"form": "중견기업, 외국인 투자기업, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 5942,
+"salary_min": 3702,
+"salary_max": 6803,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"리뉴에너지경인": {
+"csn": "WXV1WDFJL0ZtMHg4RXVkZitBT1AvQT09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 24,
+"salary_year": 2025,
+"avg_salary": 6305,
+"salary_min": 3539,
+"salary_max": 7055,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"광양알루미늄": {
+"csn": "N0piYmF1RVNkRTYwd3JQSDJ5Wms0QT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 101,
+"fetched": "2026-10-09"
+},
+"경보제약": {
+"csn": "K3Z3U1NmOWVOa3dZV3VSczZLeStvUT09",
+"form": "1000대기업, 중견기업, 코스피, 외부감사법인, 연구소, 수출입 기업",
+"employees": 572,
+"salary_year": 2025,
+"avg_salary": 7502,
+"salary_min": 3670,
+"salary_max": 9039,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"한국바스프": {
+"csn": "TXVuV3ZMSlBFRGF4eXV4WkdXS24wQT09",
+"form": "1000대기업, 대기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 961,
+"salary_year": 2025,
+"avg_salary": 10149,
+"salary_min": 4737,
+"salary_max": 11779,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"테라다인코리아": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"브루커코리아": {
+"csn": "c1BZQm9MelhDeFlhSDBDclhQOVNlZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 수출입 기업",
+"employees": 112,
+"fetched": "2026-10-09"
+},
+"우진플라임": {
+"csn": "RWUwM1FvUUI4L3ptclpVT3dMakV5Zz09",
+"form": "1000대기업, 중견기업, 코스피, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 518,
+"fetched": "2026-10-09"
+},
+"씨엔티드림": {
+"csn": "WVpIMTY0NStwdnl5RkV0eCtORVdhZz09",
+"form": "스타트업, 중소기업, 코넥스, 외국인 투자기업, 주식회사, 연구소, 병역특례 인증업체, 수출입 기업",
+"employees": 67,
+"salary_year": 2025,
+"avg_salary": 4716,
+"salary_min": 3075,
+"salary_max": 6108,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"어플라이드머티어리얼즈코리아": {
+"csn": "dFNYRnp4YzVIdWprYlc5QUdIZEFjQT09",
+"form": "1000대기업, 대기업",
+"employees": 2487,
+"salary_year": 2025,
+"avg_salary": 10139,
+"salary_min": 5253,
+"salary_max": 12538,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"지이파워시스템즈코리아": {
+"missing": true,
+"fetched": "2026-10-09"
+},
+"케이이머티리얼즈": {
+"csn": "VFpQbTY4aGRKcS9rQzNhZlhxQndlQT09",
+"form": "중소기업, 외국 법인기업, 유한회사, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 7156,
+"salary_min": 3638,
+"salary_max": 7852,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"이랜텍": {
+"csn": "ZlUwVUhIM0ZWejZHWnVEWk5vaU5PUT09",
+"form": "1000대기업, 주식회사, 외부감사법인, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"더블유알그레이스코리아": {
+"csn": "aE0xa2pCMUlDbXhlQmxNengwQlVsZz09",
+"form": "중소기업, 외국인 투자기업, 유한회사",
+"salary_year": 2025,
+"avg_salary": 9308,
+"salary_min": 4552,
+"salary_max": 10232,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"삼성이앤에이": {
+"csn": "UkdUbWtTUlJCTkhrQmJLUkRUSFJWQT09",
+"form": "1000대기업, 대기업, 코스피, 외국인 투자기업, 외부감사법인",
+"employees": 5058,
+"salary_year": 2025,
+"avg_salary": 13275,
+"salary_min": 5083,
+"salary_max": 11893,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"아쿠아플라넷": {
+"csn": "d0JmdURzYUh4YzgwMkZ4ZHJPa0pqZz09",
+"form": "대기업, 주식회사",
+"employees": 43,
+"salary_year": 2025,
+"avg_salary": 7055,
+"salary_min": 3529,
+"salary_max": 7597,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"강원도시가스": {
+"csn": "NDcwOW9lNlZxbG9vc280RXp6NGQvUT09",
+"form": "대기업, 외부감사법인",
+"employees": 66,
+"salary_year": 2025,
+"avg_salary": 9502,
+"salary_min": 4947,
+"salary_max": 10508,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"유니온바이오메트릭스": {
+"csn": "YncyZ3BhSFppRWxVRGtVdEp3MHkrUT09",
+"form": "1000대기업, 중소기업, 코스닥, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 156,
+"fetched": "2026-10-09"
+},
+"호텔신라": {
+"csn": "b214VS9hTDkvV3kxdjlGeDhCcXlRZz09",
+"form": "1000대기업, 대기업, 코스피, 외국인 투자기업, 외부감사법인",
+"employees": 1942,
+"salary_year": 2025,
+"avg_salary": 5943,
+"salary_min": 3326,
+"salary_max": 7640,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"에이치엘만도": {
+"csn": "ZXlPT0xhNEcwcGIzOG8zaTJxU1dRUT09",
+"form": "1000대기업, 대기업, 코스피",
+"employees": 3627,
+"salary_year": 2025,
+"avg_salary": 10837,
+"salary_min": 4819,
+"salary_max": 11266,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"제주신화월드": {
+"csn": "Tk5nSXRXYkxDL3Uwczl6eEFHVkdSdz09",
+"form": "중소기업, 외국인 투자기업",
+"employees": 1135,
+"fetched": "2026-10-09"
+},
+"아이파크리조트": {
+"csn": "anJxYTArdzk2T2VvMWQ5WFBtTXU3QT09",
+"form": "대기업, 외부감사법인",
+"employees": 335,
+"salary_year": 2025,
+"avg_salary": 6255,
+"salary_min": 3374,
+"salary_max": 7299,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"호반호텔앤리조트": {
+"csn": "ZmE5ajIyak82UHZlNVQ4YThnNGZmZz09",
+"form": "대기업, 주식회사, 외부감사법인",
+"salary_year": 2025,
+"avg_salary": 6022,
+"salary_min": 3515,
+"salary_max": 7061,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"메인트란스": {
+"csn": "ZmNXV0Z4bjRuenlKYU9hZkdZaTl6QT09",
+"employees": 474,
+"salary_year": 2025,
+"avg_salary": 7807,
+"salary_min": 4053,
+"salary_max": 7561,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"에스케이케미칼": {
+"csn": "WkgzeFY0dHlqUHArZ0ZBYVZoZVUwUT09",
+"form": "대기업, 코스피, 주식회사, 연구소",
+"employees": 396,
+"salary_year": 2025,
+"avg_salary": 9081,
+"salary_min": 4602,
+"salary_max": 11150,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"다함하비오": {
+"csn": "ZGgvak9ZSmJxMUFzYm5mc0cwbTNLUT09",
+"form": "1000대기업, 중견기업, 주식회사, 외부감사법인",
+"fetched": "2026-10-09"
+},
+"에펜도르프코리아": {
+"csn": "MG5ScXVBclBMZTByOVBmQTZrK0s0QT09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 46,
+"salary_year": 2025,
+"avg_salary": 8571,
+"salary_min": 4405,
+"salary_max": 10495,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"원일정보통신": {
+"csn": "SGo0TVhQK0YwRm5Db2FIeDEySnd3UT09",
+"form": "중소기업, 주식회사, 공사/공기업",
+"employees": 42,
+"salary_year": 2025,
+"avg_salary": 3018,
+"salary_min": 2407,
+"salary_max": 5025,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"데카트론코리아": {
+"csn": "bUNyZmJyWVhXcFNlNStxVnp5eE8xQT09",
+"form": "중소기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 209,
+"salary_year": 2025,
+"avg_salary": 3650,
+"salary_min": 2610,
+"salary_max": 5561,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"에이에이씨티": {
+"csn": "MG1pdGRSRlRYcmYvN3k2cFFQWlBOdz09",
+"form": "중소기업, 외국인 투자기업, 유한회사, 수출입 기업",
+"salary_year": 2025,
+"avg_salary": 5555,
+"salary_min": 3547,
+"salary_max": 6580,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국하니웰": {
+"csn": "Ym9hZkxPMU1zQ0NreFFIOWpXZ2VGZz09",
+"employees": 449,
+"salary_year": 2025,
+"avg_salary": 9632,
+"salary_min": 4669,
+"salary_max": 10401,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"에이에이호텔매니지먼트": {
+"csn": "c0ZnVTE5ck9NTTkwT042Q3lqRldtUT09",
+"form": "중소기업, 외국 법인기업, 주식회사",
+"employees": 601,
+"salary_year": 2025,
+"avg_salary": 4929,
+"salary_min": 2908,
+"salary_max": 6347,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"벡톤디킨슨코리아": {
+"csn": "YXdvVnZrUlNsRFNyUmZBOEM5TFVxQT09",
+"employees": 241,
+"salary_year": 2025,
+"avg_salary": 9124,
+"salary_min": 4539,
+"salary_max": 11330,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"아모레퍼시픽": {
+"csn": "Q0laTktzZWRPRDhCWFh1c1FVSmhXZz09",
+"form": "1000대기업, 대기업, 코스피, 외부감사법인, 수출입 기업",
+"employees": 4388,
+"salary_year": 2025,
+"avg_salary": 10192,
+"salary_min": 4558,
+"salary_max": 10774,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"에스앤씨레스토랑코리아": {
+"csn": "eDFiSVhQQ203OTZMc252RDJwZ1Iydz09",
+"form": "1000대기업, 중소기업",
+"employees": 16,
+"fetched": "2026-10-09"
+},
+"트래블블루코리아": {
+"csn": "SVZnQ0FwMisvZDVvZ0ZNYjdWVzd2Zz09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 13,
+"salary_year": 2025,
+"avg_salary": 3765,
+"salary_min": 2614,
+"salary_max": 5331,
+"salary_reliability": "낮음",
+"fetched": "2026-10-09"
+},
+"디에스브이컨트랙트로지스틱스": {
+"csn": "R2dPM3FyWkxGSnJJRk83cVAvZnRHdz09",
+"employees": 290,
+"salary_year": 2025,
+"avg_salary": 6777,
+"salary_min": 3615,
+"salary_max": 7629,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-09"
+},
+"대동도어": {
+"csn": "WnliRis5Y1d2U2RGVk13K2RkaUpWUT09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인",
+"employees": 261,
+"salary_year": 2025,
+"avg_salary": 9153,
+"salary_min": 4341,
+"salary_max": 9330,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"디스트릭트코리아": {
+"csn": "akd1Smd1K1lDblZ6OXZ6Y01FTGpQUT09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 163,
+"salary_year": 2025,
+"avg_salary": 7785,
+"salary_min": 3805,
+"salary_max": 8977,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"오웬스코닝비엠코리아": {
+"csn": "eDVtL2FNTThoRzFGV1NGc3hPSGF4QT09",
+"form": "중소기업, 외국인 투자기업, 유한회사",
+"employees": 44,
+"salary_year": 2025,
+"avg_salary": 8851,
+"salary_min": 4496,
+"salary_max": 9200,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"마이나비코리아": {
+"csn": "VmpBUU1ZSVNta0IwekFia3BkcU1PUT09",
+"form": "1000대기업, 중소기업, 외국인 투자기업, 주식회사",
+"employees": 10,
+"fetched": "2026-10-09"
+},
+"에이치엘클레무브": {
+"csn": "cWt4MzFTZTJVcHJWTWJHUVJnVW1vdz09",
+"form": "1000대기업, 대기업, 주식회사, 병역특례 인증업체, 수출입 기업",
+"employees": 1213,
+"fetched": "2026-10-09"
+},
+"네이버클라우드": {
+"csn": "SWxVaDVyUmRXSDVlcHZDWk5sbzdJQT09",
+"form": "1000대기업, 대기업, 주식회사",
+"employees": 1871,
+"fetched": "2026-10-09"
+},
+"솔탑": {
+"csn": "RFFnOXg1NzRRRGhzL0FsdUZxT3BTQT09",
+"form": "1000대기업, 중소기업, 주식회사, 병역특례 인증업체",
+"employees": 111,
+"salary_year": 2025,
+"avg_salary": 6052,
+"salary_min": 3575,
+"salary_max": 7887,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"한국미스미": {
+"csn": "VnJwbXlFSHVTT1pJdnlTT2Z4a0hnQT09",
+"form": "중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 272,
+"fetched": "2026-10-09"
+},
+"포스코에이앤씨건축사사무소": {
+"csn": "clVWdVlxWkxxWGZhaHc2Y2RRQXBTQT09",
+"form": "대기업, 외부감사법인",
+"employees": 954,
+"salary_year": 2025,
+"avg_salary": 9232,
+"salary_min": 4287,
+"salary_max": 9730,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"케이엔솔": {
+"csn": "NE1QaVdKMFBRSnFoREF6cXNpTysyQT09",
+"form": "1000대기업, 중견기업, 코스닥, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 188,
+"salary_year": 2025,
+"avg_salary": 5776,
+"salary_min": 3525,
+"salary_max": 6858,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"에이치디씨현대피씨이": {
+"csn": "WjN5a0dwaWVaZTF0ZldaNWk4SDFBdz09",
+"employees": 28,
+"fetched": "2026-10-09"
+},
+"삼송": {
+"csn": "NFJzVzB0aTZKNVZNeHdOWjR3TkdKQT09",
+"form": "1000대기업, 중견기업, 유한회사, 수출입 기업",
+"fetched": "2026-10-09"
+},
+"아성다이소": {
+"csn": "bytsRWZDbGYvamdqQTh4U2Qzd0xQUT09",
+"form": "1000대기업, 중견기업, 외부감사법인, 수출입 기업",
+"employees": 13468,
+"fetched": "2026-10-09"
+},
+"주택관리공단부산울산지사": {
+"csn": "RXdNWEJ4akxmY0tQMDFzZXdmOGVJQT09",
+"fetched": "2026-10-09"
+},
+"무등기업평동": {
+"csn": "UTU2ZTVUTzMrejVSVVR6VUp3VStlZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 90,
+"salary_year": 2025,
+"avg_salary": 5153,
+"salary_min": 3233,
+"salary_max": 6216,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"주택관리공단": {
+"csn": "NDNTU2daVzF6MkJ6U1o2UnovRzdiUT09",
+"form": "대기업, 외부감사법인, 공사/공기업",
+"employees": 2669,
+"salary_year": 2025,
+"avg_salary": 5395,
+"salary_min": 2904,
+"salary_max": 5902,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"루트제이드": {
+"csn": "Uis3OUEvOHhmZlNkSlFSREtyTjRrdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 외부감사법인, 수출입 기업",
+"employees": 288,
+"salary_year": 2025,
+"avg_salary": 5869,
+"salary_min": 3549,
+"salary_max": 7828,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"삼성생명보험": {
+"csn": "cjdIZllJWG1pLy9EcjRiVm9CdnFHdz09",
+"form": "1000대기업, 대기업, 코스피, 주식회사, 금융기관",
+"employees": 5193,
+"salary_year": 2025,
+"avg_salary": 15458,
+"salary_min": 6198,
+"salary_max": 13183,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-09"
+},
+"케이유엠": {
+"csn": "NXUwSUk3KzNEaUQ1UzFHUm5oSFFTdz09",
+"fetched": "2026-10-09"
+},
+"더스윙": {
+"csn": "NlB3L3FmcGZvdnVMUHQwYnh4MDVVZz09",
+"form": "중소기업, 외국인 투자기업, 주식회사, 연구소, 병역특례 인증업체",
+"employees": 106,
+"salary_year": 2025,
+"avg_salary": 5614,
+"salary_min": 4365,
+"salary_max": 6556,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"광신기계공업": {
+"csn": "OVVEVmR2eEg4SU4vazUxMU1iMkx2dz09",
+"employees": 136,
+"salary_year": 2025,
+"avg_salary": 6877,
+"salary_min": 3763,
+"salary_max": 7462,
+"salary_reliability": "높음",
+"fetched": "2026-10-09"
+},
+"엘티메탈": {
+"csn": "Z2R0UGNMK0Z2aTRtd3Yrb0FNL0NuUT09",
+"form": "1000대기업, 중견기업, 외국인 투자기업, 외부감사법인, 수출입 기업",
+"employees": 433,
+"salary_year": 2025,
+"avg_salary": 9053,
+"salary_min": 4348,
+"salary_max": 9576,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
+},
+"트레인코리아": {
+"csn": "dE1KN2Fla1pHZkNuZ2IvUXlwbE0yZz09",
+"employees": 73,
+"salary_year": 2025,
+"avg_salary": 8216,
+"salary_min": 4136,
+"salary_max": 8455,
+"salary_reliability": "보통",
+"fetched": "2026-10-09"
 }
 }
