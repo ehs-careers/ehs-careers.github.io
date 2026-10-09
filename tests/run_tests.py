@@ -313,6 +313,16 @@ def check_dups():
     return bad
 
 
+# 그룹 채용 사이트 본문(직무 목록)에서 환경·안전 직무를 읽는지 (2026-10-09 백테스트: HD 경력 공고 누락 사례)
+API_FIELD_CASES = [("경력 | 상시 | 안전/보건/환경 | 울산", True), ("PM/PM(친환경), 영업/친환경영업", False), ("신입 채용 (안전)", True),
+                   ("경력/안전환경, 경력/환경기술", True), ("설계/연구/친환경설계", False), ("경영지원/HR, 영업/AM영업", False)]
+
+
+def check_api_field():
+    import job_radar as jr
+    return [f"직무 목록 {b!r} → {bool(jr.API_FIELD.search(b))} (기대 {w})" for b, w in API_FIELD_CASES if bool(jr.API_FIELD.search(b)) != w]
+
+
 def check_sections():
     sys.path.insert(0, str(ROOT / "ml"))
     import relevance as R
@@ -322,7 +332,7 @@ def check_sections():
 
 
 def main():
-    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups()
+    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups() + check_api_field()
     for b in bad_co: print("  ✗ 회사명 판정:", b)
     tmp = Path(tempfile.mkdtemp(prefix="jobradar_test_"))
     src = [

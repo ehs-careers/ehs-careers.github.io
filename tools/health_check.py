@@ -28,6 +28,10 @@ def main():
         problems.append(f"정상 소스 {ok}/{total} (60% 미만)")
     if len(sar) >= 20 and sar_ok / len(sar) < 0.3:
         problems.append(f"사람인 {sar_ok}/{len(sar)}만 정상 — 해외 서버 차단 의심")
+    js = [x for x in health if "자소설" in x.get("name", "")]
+    if js and (not js[0]["ok"] or js[0].get("found", 0) < 20):
+        # 메이저 그룹 신입 공채의 43%가 자소설닷컴 한 곳에서만 잡힌다(2026-10-09 백테스트) → 끊기면 바로 알림
+        problems.append(f"자소설닷컴 수집 이상 (후보 {js[0].get('found', 0)}건)")
     if len(api) >= 4 and api_ok / len(api) < 0.5:
         problems.append(f"그룹 채용 API {api_ok}/{len(api)}만 정상")
     out = {"runAt": run_at, "ok": ok, "total": total, "saramin": [sar_ok, len(sar)], "api": [api_ok, len(api)],

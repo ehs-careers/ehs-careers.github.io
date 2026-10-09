@@ -3595,5 +3595,26 @@
   "timeout_sec": 1500,
   "group": "대기업 계열",
   "note": "2026-10-09 누락 점검: 작은 계열사는 사람인 '대기업' 필터에 안 걸림 → 필터 없이 검색 후 공정위 계열사만"
+ },
+ {
+  "name": "현대제철",
+  "type": "company",
+  "url": "https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit/csn/Qkcrby9RZ3NFUTFvSElKeFhVNWpoUT09",
+  "company": "현대제철",
+  "note": "2026-10-09 백테스트: 그룹 사이트·자소설에만 기대던 메이저 계열사 — 사람인 회사 페이지 추가"
+ },
+ {
+  "name": "현대건설",
+  "type": "company",
+  "url": "https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit/csn/Q0V0UCtKMG1rcDRZa2NRZXNKaURuUT09",
+  "company": "현대건설",
+  "note": "2026-10-09 백테스트: 그룹 사이트·자소설에만 기대던 메이저 계열사 — 사람인 회사 페이지 추가"
+ },
+ {
+  "name": "현대글로비스",
+  "type": "company",
+  "url": "https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit/csn/cGdRT3RvMWRBZEY2UWxZVTkyNHRPZz09",
+  "company": "현대글로비스",
+  "note": "2026-10-09 백테스트: 그룹 사이트·자소설에만 기대던 메이저 계열사 — 사람인 회사 페이지 추가"
  }
 ]

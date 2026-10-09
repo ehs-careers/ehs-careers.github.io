@@ -49,6 +49,7 @@ import urllib.parse
 import urllib.request
 import zlib
 from datetime import datetime, timedelta, timezone
+EHS_FIRST = re.compile(r"안전|보건|환경|EHS|SHE|HSE|PSM", re.I)
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/140.0 Safari/537.36")
@@ -207,7 +208,7 @@ def fetch_hd() -> list:
             "title": _text(o.get("recruitNoticeName")),
             "href": o.get("recruitNoticeUrl") or "https://recruit.hd.com/kr/mainLayout/apply",
             "block": _join(o.get("recruitClassName"), o.get("recruitTypeName"), f"접수 {st[:16]} ~ {en[:16]}",
-                           ", ".join(areas)[:120], ", ".join(jobs)[:200], ", ".join(comps)[:120]),
+                           ", ".join(areas)[:120], ", ".join(sorted(jobs, key=lambda x: not EHS_FIRST.search(x))), ", ".join(comps)[:120]),  # 직무 목록 자르지 않음, 환경·안전 직무를 앞으로 (2026-10-09 백테스트: 200자 자르기로 HD 경력 2건 누락)
         })
     return out
 
