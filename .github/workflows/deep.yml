@@ -36,7 +36,7 @@ jobs:
       - name: 회귀 테스트
         run: python tests/run_tests.py
       - name: 수집
-        run: mkdir -p state && python job_radar.py --no-notify --no-verify --only "(검색)" 2>&1 | tee state/log.txt   # 일부 사이트 실패해도 다음 단계 진행
+        run: mkdir -p state && python job_radar.py --no-notify --no-verify --only "검색" 2>&1 | tee state/log.txt   # 일부 사이트 실패해도 다음 단계 진행
       - name: 웹 데이터 만들기
         run: python tools/export_site.py
       - name: 건강 검진 (이상하면 마지막에 실패 처리 → GitHub 메일)
