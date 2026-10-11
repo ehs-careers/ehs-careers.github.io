@@ -3586,7 +3586,7 @@
   "note": "그룹 공식 채용 사이트 (portals/groups.py)"
  },
  {
-  "name": "사람인 전체 (대기업 계열사 대조)",
+  "name": "사람인 전체 (검색 · 대기업 계열사 대조)",
   "type": "api",
   "adapter": "aggregators:사람인 전체(대기업 계열사 대조)",
   "url": "https://www.saramin.co.kr/zf_user/search/recruit",

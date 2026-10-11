@@ -156,6 +156,10 @@ def same_hiring(a, b):
         return False
     if a.get("link") and a.get("link") == b.get("link"):
         return True
+    # 끝의 괄호만 다른 같은 공고: '신입/경력사원 상시 모집 (환경안전)' vs '… (공정안전)' (모음 검색 기록이 붙은 옛 행, 2026-10-11)
+    strip = lambda t: re.sub(r"\s*\([^()]*\)\s*$", "", t or "")
+    if strip(a["title"]) != (a["title"] or "") and strip(a["title"]) == strip(b["title"]) and len(strip(a["title"])) >= 8:
+        return True
     # 공채 이름이 같으면(구분자 앞부분: '2026년 (하반기) 신입사원 공개채용') 같은 채용 — 분야는 뒤쪽에
     pa, pb = hiring_name(a["title"], a["company"]), hiring_name(b["title"], b["company"])
     if pa and pa == pb:

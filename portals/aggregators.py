@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import os
 import re
 import time
 import urllib.error
@@ -33,7 +34,9 @@ from html import unescape
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
 TIMEOUT = 20
 GAP = 4.5                      # 같은 호스트 요청 간격(초)
-MAX_REQ_PER_HOST = 240         # 사이트당 상한 — 2026-10-09 누락 점검 후 검색어·깊이 확대(요청 간 4.5초 유지, 사람인 ≈ 12분)
+# 깊은 훑기(주 2회, 환경변수 JOBRADAR_DEEP=1): 오래 열려 있는 상시 공고까지 — 2026-10-11 BGF리테일·한솔티씨에스 누락 사례
+DEEP = os.environ.get("JOBRADAR_DEEP") == "1"
+MAX_REQ_PER_HOST = 700 if DEEP else 240         # 사이트당 상한 — 2026-10-09 누락 점검 후 검색어·깊이 확대(요청 간 4.5초 유지, 사람인 ≈ 12분)
 KST = timezone(timedelta(hours=9))
 
 # 재현율 우선의 넓은 직무 그물 (최종 판정은 ml/relevance.py 가 한다)
@@ -154,12 +157,12 @@ def fetch_saramin(keyword: str, company_type: str = SARAMIN_LARGE, max_pages: in
 
 
 def fetch_saramin_large(keyword: str) -> list[dict]:
-    return fetch_saramin(keyword, SARAMIN_LARGE, max_pages=5)   # 최근 500건: 수집 시작 전 공고도 (10/4 이전 등록분 누락 사례)
+    return fetch_saramin(keyword, SARAMIN_LARGE, max_pages=10 if DEEP else 5)   # 최근 500건: 수집 시작 전 공고도 (10/4 이전 등록분 누락 사례)
 
 
 def fetch_saramin_all(keyword: str) -> list[dict]:
     """기업형태 필터 없이 — 작은 대기업 계열사(스틸싸이클·한솔티씨에스 등)는 '대기업' 필터에 안 걸린다. 공정위 명단 대조는 수집기가(groups_only)"""
-    return fetch_saramin(keyword, "", max_pages=3)
+    return fetch_saramin(keyword, "", max_pages=12 if DEEP else 3)
 
 
 def fetch_saramin_mid(keyword: str) -> list[dict]:
@@ -225,7 +228,7 @@ def fetch_jobkorea(keyword: str, cotype: str = JK_LARGE, max_pages: int = 3) -> 
 
 
 def fetch_jobkorea_large(keyword: str) -> list[dict]:
-    return fetch_jobkorea(keyword, JK_LARGE, max_pages=4)
+    return fetch_jobkorea(keyword, JK_LARGE, max_pages=12 if DEEP else 4)
 
 
 # ---------------------------------------------------------------- 자소설닷컴
