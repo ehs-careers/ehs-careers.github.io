@@ -490,6 +490,34 @@ textarea:focus,.inp:focus{border-color:var(--accent);box-shadow:0 3px 14px var(-
 :root:not([data-palette]) .newbar b{font-size:14px}
 .tags .lnk{margin-left:auto;font-size:12.5px}
 input[type=search]::-webkit-search-cancel-button{display:none} /* 직접 만든 지우기 버튼과 겹침 */
+/* 2026-10-11 공고 카드를 가볍게(사용자: "채용카드 디자인이 부담스럽다"): 상자·막대·첫 글자 아이콘·상시 버튼 없이 줄 목록으로 — 차분 기본일 때 */
+:root:not([data-palette]) .rows{gap:0;border-top:1px solid var(--line)}
+:root:not([data-palette]) .jc{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:11px 6px;background:transparent;box-shadow:none!important}
+:root:not([data-palette]) .jc:hover,:root:not([data-palette]) .jc.sel,:root:not([data-palette]) .jc.top.sel{background:var(--soft)}
+:root:not([data-palette]) .jc.top::after,:root:not([data-palette]) .jc .av{display:none}
+:root:not([data-palette]) .jc.fresh{border-color:var(--line)}
+:root:not([data-palette]) .jc-main{gap:3px}
+:root:not([data-palette]) .jc-co{font-size:12.5px;color:var(--muted)}
+:root:not([data-palette]) .jc-co b{color:var(--text-2);font-weight:700}
+:root:not([data-palette]) .jc.top .jc-co b{color:var(--text-2)}
+:root:not([data-palette]) .jc-ti,:root:not([data-palette]) .jc.top .jc-ti{font-size:15px;font-weight:700}
+:root:not([data-palette]) .jc.fresh .jc-ti::before{background:none;color:var(--accent-text);padding:0;margin-right:6px;font-size:11px}
+:root:not([data-palette]) .jc .tag{background:none;border:0;padding:0;color:var(--muted)}
+:root:not([data-palette]) .jc .tag+.tag::before{content:"· ";color:var(--line-2)}
+:root:not([data-palette]) .jc .st{background:none;padding:0;font-weight:600}
+:root:not([data-palette]) .jc .st.no{display:none}
+:root:not([data-palette]) .jc .period{font-weight:600;font-size:12.5px}
+:root:not([data-palette]) .jc .period svg{display:none}
+:root:not([data-palette]) .jc .dd{background:none;padding:0;font-size:12.5px}
+:root:not([data-palette]) .jc .dd.hot{color:var(--warn)}
+:root:not([data-palette]) .jc .dd.soon{color:var(--accent-text)}
+:root:not([data-palette]) .jc .lnk{font-weight:600}
+:root:not([data-palette]) .jc .qk button{border-color:var(--line-2);background:var(--bg)}
+@media (hover:hover) and (min-width:861px){
+  :root:not([data-palette]) .jc .qk{opacity:0;transition:opacity .12s}
+  :root:not([data-palette]) .jc:hover .qk,:root:not([data-palette]) .jc:focus-within .qk,:root:not([data-palette]) .jc.sel .qk,
+  :root:not([data-palette]) .jc .qk:has(button[aria-pressed="true"]){opacity:1}
+}
 .roles{font-size:12.5px;color:var(--accent-text);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rolebox{display:flex;flex-direction:column;gap:4px;margin-top:10px;font-size:13px}.rolebox a{color:var(--accent-text)}
 /* 휴대폰(차분 기본): 첫 공고가 빨리 보이게 위쪽을 압축 — 색감 버튼은 숨기고(데스크톱에서 고름), 필터는 가로로 밀어 보기 */

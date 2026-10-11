@@ -90,6 +90,9 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
         # 예전 수집이 남긴 '공고 아님' 행(회사 소개 페이지의 복지 문구·포털 화면 문장 조각) — 지금 수집기의 공고 판별을 다시 적용 (2026-10-09)
         if r.get("source") != "클라우드 알림" and not re.search(r"\(API|그리팅|recruiter", r.get("source") or "")                 and jr.not_a_posting({"title": r["title"], "block": r.get("snippet") or "", "href": r.get("link") or ""}, {"type": "company", "url": r.get("link") or ""}):
             continue
+        # 원문 확인으로 고용 형태가 계약직·파견직·기간제·촉탁으로 나온 공고 (사용자 2026-10-09 "계약직은 빼자"; '정규직·계약직' 혼합은 남김)
+        if re.search(r"계약|파견|기간제|촉탁", r.get("emp_type") or "") and "정규" not in (r.get("emp_type") or ""):
+            continue
         # 채용 포털 홍보 문구('금호석유화학 환경 오소영 대리' 같은 직원 소개)가 공고로 들어온 것 — 2026-10-09 실례
         if re.search(r"(?:대리|과장|차장|부장|사원|책임|매니저|프로|님)\s*$", r["title"]) and not re.search(r"채용|모집|공고|경력|신입|인턴|선임", r["title"]):
             continue
