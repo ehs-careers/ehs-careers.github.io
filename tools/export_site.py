@@ -85,7 +85,7 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
     jobs = []
     for r in con.execute("SELECT * FROM jobs WHERE status='open' OR last_seen>=? ORDER BY first_seen DESC", (cutoff,)):
         r = dict(r)
-        if (r.get("verify") or "").startswith(("중복: ", "다른 회사")):
+        if (r.get("verify") or "").startswith(("중복: ", "다른 회사", "판정 오류")):  # 판정 오류로 정리한 행은 마감 목록에도 안 보임
             continue
         # 예전 수집이 남긴 '공고 아님' 행(회사 소개 페이지의 복지 문구·포털 화면 문장 조각) — 지금 수집기의 공고 판별을 다시 적용 (2026-10-09)
         if r.get("source") != "클라우드 알림" and not re.search(r"\(API|그리팅|recruiter", r.get("source") or "")                 and jr.not_a_posting({"title": r["title"], "block": r.get("snippet") or "", "href": r.get("link") or ""}, {"type": "company", "url": r.get("link") or ""}):

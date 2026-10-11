@@ -480,9 +480,10 @@ API_FIELD = re.compile(r"[(\[]\s*안전\s*[)\]]|(?<!친)환경\s*[/·&,]?\s*안�
 def judge(src, item, settings, t):
     title, block = item["title"], item["block"]
     from relevance import sections_loose, sections
-    if src.get("type") == "api" and not sections_loose({"title": title, "company": src.get("company", "")}, settings):
+    if src.get("type") == "api" and not str(src.get("adapter", "")).startswith("aggregators:")             and not sections_loose({"title": title, "company": src.get("company", "")}, settings):
         # 그룹 채용 사이트: '경력사원 상시채용'처럼 제목엔 분야가 없고 직무 목록에만 '환경안전'이 있는 공고 (2026-10-09, OCI 사례)
-        m = API_FIELD.search(block)
+        # 모음 검색(사람인·잡코리아)은 제외 — 본문에 붙은 '검색:환경안전'(검색에 쓴 낱말)을 직무로 읽어 1,350건이 잘못 들어왔다(2026-10-11)
+        m = API_FIELD.search(re.sub(r"검색\s*:\s*\S+", " ", block))
         if m:
             title = f"{title} ({m.group(0)})"
     if not sections_loose({"title": title, "company": src.get("company", "")}, settings):

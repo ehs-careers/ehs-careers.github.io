@@ -323,6 +323,21 @@ def check_api_field():
     return [f"직무 목록 {b!r} → {bool(jr.API_FIELD.search(b))} (기대 {w})" for b, w in API_FIELD_CASES if bool(jr.API_FIELD.search(b)) != w]
 
 
+def check_aggregator_block():
+    """모음 검색 공고는 본문의 '검색:환경안전' 기록 때문에 통과하면 안 된다 (2026-10-11 실제 사고: 1,350건 유입)"""
+    import datetime as dt
+    import job_radar as jr
+    s = jr.load_settings()
+    src = {"type": "api", "name": "t", "url": "https://x", "company": "", "adapter": "aggregators:사람인 대기업·공기업·외국계", "default_rank": 4}
+    bad = []
+    for title in ["식음업장 홀서비스·조리사 채용(경북)", "주간고정.야간고정 보안사원", "GS칼텍스 인재개발원 룸메이드 모집"]:
+        item = {"title": title, "block": "~ 10/30 · 경력무관 · 정규직 · 검색:환경안전", "href": "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=1", "company": "(주)풀무원푸드앤컬처"}
+        j, why = jr.judge(src, item, s, dt.date(2026, 10, 11))
+        if j:
+            bad.append(f"모음 검색 기록으로 통과: {title}")
+    return bad
+
+
 def check_sections():
     sys.path.insert(0, str(ROOT / "ml"))
     import relevance as R
@@ -332,7 +347,7 @@ def check_sections():
 
 
 def main():
-    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups() + check_api_field()
+    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups() + check_api_field() + check_aggregator_block()
     for b in bad_co: print("  ✗ 회사명 판정:", b)
     tmp = Path(tempfile.mkdtemp(prefix="jobradar_test_"))
     src = [
