@@ -39,11 +39,33 @@ def load_large_groups():
 
 
 # 헤드헌팅·파견·인력 회사 이름 (사람인·잡코리아 모음 검색은 '헤드헌팅' 표시 없이 들어온다 — 2026-10-09 실측)
-AGENCY = re.compile(r"서치|써치|헤드헌|파트너스|스카우트|커리어|에이치알|\bHR\b|피플|맨파워|퍼솔|아데코|인드림|헌터|휴먼|리크루트|아웃소싱|인재|잡$", re.I)
+AGENCY = re.compile(r"서치|써치|헤드헌|파트너스|스카우트|커리어|에이치알|\bHR\b|피플|맨파워|퍼솔|아데코|인드림|헌터|휴먼|리크루트|아웃소싱|인재|잡$|사람인에이치에스", re.I)
+# 다른 회사 공고를 대신 올리는 공공기관(제목 앞의 '(주)코아텍시스템즈' 가 실제 회사) — 2026-10-12 중소기업 공고 3건이 '대기업'으로 보임
+PROXY_POSTER = re.compile(r"중소벤처기업진흥공단|중진공|고용노동부|워크넷|일자리센터|일자리재단|사람인에이치에스")  # 사람인HS = 다우키움 계열이지만 고객사 아웃소싱 공고
+
+
+def form_tokens(form):
+    return {t.strip() for t in (form or "").split(",")}
+
+
+def is_form_large(form, emp):
+    """사람인 기업형태에 '대기업'이 낱말로 있을 때만('1000대기업' = 매출 1000대, 대기업 아님). 사원 300명 미만은 자회사·SPC 라 제외 — 2026-10-12 실례: 세나테크놀로지 135명·리뉴에너지경인 24명이 '대기업' 표기"""
+    return "대기업" in form_tokens(form) and not (0 < emp < 300)
+
+
+def form_rank(rank, form, emp):
+    """이름 일부 일치('현대'→현대알루미늄, '토탈'→엠지토탈서비스)로 대기업(1)이 된 회사를 사람인 기업형태로 바로잡는다.
+    기업형태가 중견·중소이고 외국계도 아니면 중견(4). 외국계(머크·지멘스가메사 한국법인)는 한국 법인 규모가 작아도 그대로."""
+    toks = form_tokens(form)
+    if rank <= 2 and toks & {"중견기업", "중소기업"} and not toks & {"대기업", "외국인 투자기업", "외국 법인기업"}:
+        return 4
+    return rank
 
 
 def co_tier(r, size, groups, mid_names=()):
     """'대기업' / '우량 중견' / '중견·기타'. 화면은 '중견·기타'를 기본으로 숨긴다(데이터는 남김)."""
+    if PROXY_POSTER.search(r.get("company") or ""):
+        return "중견·기타", ""
     for n in (r.get("company_full"), r.get("company")):
         if n and NORM(n) in groups:
             return "대기업", groups[NORM(n)]
@@ -57,7 +79,9 @@ def co_tier(r, size, groups, mid_names=()):
     if rank <= 3 or "대기업" in size or re.search(r"공사|공단|공공기관", r.get("company") or ""):
         return "대기업", ""
     emp, sal = r.get("employees") or 0, r.get("avg_salary") or 0
-    if emp >= GOOD_MID["employees"] or (sal >= GOOD_MID["avg_salary"] and emp >= GOOD_MID["salary_min_employees"]):
+    # 매출 1000대 기업(사람인 '1000대기업')은 대기업은 아니지만 우량 중견으로 보여 준다(재현율 — 성신양회·케이씨·경보제약 등)
+    if emp >= GOOD_MID["employees"] or (sal >= GOOD_MID["avg_salary"] and emp >= GOOD_MID["salary_min_employees"]) \
+            or "1000대기업" in form_tokens(r.get("company_form")):
         return "우량 중견", ""
     # 회사 정보를 아직 못 읽은 회사: 직접 고른 '중견 목록'(settings.mid_companies)에 있는 회사만 일단 보여 준다(재현율)
     if not emp and not sal and any(m and m in (r.get("company") or "") for m in mid_names):
@@ -102,9 +126,12 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
         sc = r.get("rel_score") or 0
         # 규모: 회사 목록에 없던 회사는 사람인 기업정보(기업형태)로 올린다 — 모음 검색으로 들어온 대기업 계열사 등
         size, form = r.get("size") or "", r.get("company_form") or ""
-        if (r.get("size_rank") or 5) >= 4 and "대기업" in form:
+        r = dict(r, size_rank=form_rank(r.get("size_rank") or 5, form, r.get("employees") or 0))
+        if r["size_rank"] >= 4 and is_form_large(form, r.get("employees") or 0):
             size = "대기업"
-        elif (r.get("size_rank") or 5) == 5 and "중견" in form:
+        elif r["size_rank"] == 4 and size.startswith("대기업"):
+            size = "중견"
+        elif r["size_rank"] == 5 and "중견" in form:
             size = "중견"
         tier, grp = co_tier(r, size, groups, mids)
         if grp and not re.search(r"대기업", size):
