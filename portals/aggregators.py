@@ -40,10 +40,10 @@ MAX_REQ_PER_HOST = 700 if DEEP else 240         # 사이트당 상한 — 2026-1
 KST = timezone(timedelta(hours=9))
 
 # 재현율 우선의 넓은 직무 그물 (최종 판정은 ml/relevance.py 가 한다)
-EHS_RE = re.compile(r"환경|안전|보건|산업위생|공정안전|PSM|화학물질|화관법|위험물|EHS|HSE|ESH|SHE|HSEQ|온실가스|대기|수질|폐기물", re.I)
+EHS_RE = re.compile(r"환경|안전|보건|산업위생|공정안전|PSM|화학물질|화관법|위험물|EHS|HSE|ESH|SHE|HSEQ|온실가스|대기|수질|폐기물|Safety|Environment", re.I)
 
 # 2026-10-09 누락 점검: '안전보건'·'중대재해'로만 잡히는 대기업 공고(한진·BGF리테일·KREAM)가 있어 확대
-KEYWORDS = ["환경안전", "EHS", "안전관리", "공정안전", "화학물질", "보건관리자", "안전보건", "중대재해", "산업안전", "안전환경", "SHE", "HSE", "PSM", "환경관리"]
+KEYWORDS = ["환경안전", "EHS", "안전관리", "공정안전", "화학물질", "보건관리자", "안전보건", "중대재해", "산업안전", "안전환경", "SHE", "HSE", "PSM", "환경관리", "Safety Engineer"]  # 2026-10-12 재현율 점검: 영문 직함만 있는 외국계 공고(Safety Engineer) 누락
 
 _last: dict[str, float] = {}
 _count: dict[str, int] = {}

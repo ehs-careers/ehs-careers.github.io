@@ -497,6 +497,10 @@ def norm_co(s):
 # 그룹 채용 사이트 본문(직무 목록)에서 볼 '확실한' 환경·안전 직무명 — '친환경 설계' 같은 낱말은 해당 없음
 API_FIELD = re.compile(r"[(\[]\s*안전\s*[)\]]|(?<!친)환경\s*[/·&,]?\s*안전|안전\s*[/·&,]?\s*(?:환경|보건)|산업\s*(?:안전|보건)|공정\s*안전|안전\s*관리|보건\s*관리|(?<!친)환경\s*(?:관리|기술)|(?<!친)환경\s*/\s*에너지|화학\s*물질\s*관리|EHS|SHE|HSE|PSM")  # 2026-10-09 백테스트로 확장(빗금 '안전/보건/환경'), '친환경'은 제외
 
+# 헤드헌팅 공고: 회사명은 인력 회사, 제목에 고객사 규모(대기업·외국계·글로벌·코스피)를 적는다 — 2026-10-12 재현율 점검에서 사람인 헤드헌팅 공고 누락
+HEADHUNT_BIG = re.compile(r"(?:서치|써치|헤드헌|파트너스|스카우트|커리어|에이치알|HR|피플|인드림|헌터|휴먼|리크루트).*(?:대기업|외국계|글로벌|다국적|코스피|상장)|(?:대기업|외국계|글로벌|다국적|코스피|상장).*(?:서치|써치|헤드헌|파트너스|스카우트|커리어|에이치알|HR|피플|인드림|헌터|휴먼|리크루트)", re.I)
+
+
 def judge(src, item, settings, t):
     title, block = item["title"], item["block"]
     from relevance import sections_loose, sections
@@ -521,8 +525,8 @@ def judge(src, item, settings, t):
         company = item.get("company") or src.get("company", "")
         if src.get("size_filter") and not (find_company(company, settings) or is_large(company, settings)):
             return None, "중견 이상 목록에 없는 회사"  # 사람인 대기업 필터 같은 모음 검색용
-        if src.get("groups_only") and not large_group_of(company):
-            return None, "대기업집단 계열사 아님"   # 필터 없는 검색: 공정위 명단에 있는 계열사만
+        if src.get("groups_only") and not large_group_of(company) and not HEADHUNT_BIG.search(f"{company} {title}"):
+            return None, "대기업집단 계열사 아님"   # 필터 없는 검색: 공정위 명단에 있는 계열사만 (+ 고객사가 대기업·외국계라고 밝힌 헤드헌팅 공고)
     else:
         company = src["company"]
     exp, min_years, newbie_only = parse_exp(block)
