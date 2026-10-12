@@ -35,6 +35,7 @@ def co_variants(s):
     m = re.match(r"^(.*?)[(（](.*?)[)）]$", n)
     if m:
         out |= {m.group(1), m.group(2)}
+    out |= {x[:-2] for x in out if x.endswith("그룹")}  # '동원그룹' 표기 공고 = '동원산업(주)' 공고 (2026-10-12, 잡코리아·사람인 같은 공고)
     return {x for x in out if len(x) >= 2}
 
 

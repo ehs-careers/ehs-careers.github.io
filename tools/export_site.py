@@ -117,6 +117,16 @@ def main(out=ROOT / "site" / "data" / "jobs.json"):
         # 원문 확인으로 고용 형태가 계약직·파견직·기간제·촉탁으로 나온 공고 (사용자 2026-10-09 "계약직은 빼자"; '정규직·계약직' 혼합은 남김)
         if re.search(r"계약|파견|기간제|촉탁", r.get("emp_type") or "") and "정규" not in (r.get("emp_type") or ""):
             continue
+        # 원문(직무 근거 문장)에 고용형태 계약직이 적힌 공고 — emp_type 칸이 비어 있어도 (2026-10-12 엠지토탈서비스 '계약직 (근무기간 12개월')
+        if re.search(r"고용\s*형태\s*:?\s*(?:계약|파견|기간제|촉탁)", r.get("duty_evidence") or ""):
+            continue
+        # 건설사 공고인데 원문이 건설 현장 안전관리(PJT·현장)인 것 — 제목엔 '현장'이 없어 규칙을 통과 (2026-10-12 KCC건설 상시 채용)
+        if "건설현장" in (r.get("duty_flag") or "") and re.search(st["profiles"]["안전"].get("construction", "^$"), r.get("company") or ""):
+            continue
+        # 경력 하한(settings.max_min_years) — 수집 때는 목록 카드로 거르고, 원문 확인으로 경력 값이 나중에 채워진 공고는 여기서 다시 거른다
+        # (2026-10-12: '10년 ↑'·'12~16년' 공고 10건이 진행 중 목록에 남아 있었음)
+        if (jr.parse_exp(r.get("exp") or "")[1] or 0) > int(st.get("max_min_years", 7)):
+            continue
         # 채용 포털 홍보 문구('금호석유화학 환경 오소영 대리' 같은 직원 소개)가 공고로 들어온 것 — 2026-10-09 실례
         if re.search(r"(?:대리|과장|차장|부장|사원|책임|매니저|프로|님)\s*$", r["title"]) and not re.search(r"채용|모집|공고|경력|신입|인턴|선임", r["title"]):
             continue
