@@ -162,26 +162,46 @@ async def fetch_source(ctx, src, pattern, timeout, debug, gsem, host_locks, gap,
     res = {"name": src["name"], "type": src["type"], "url": src["url"], "ok": False, "items": [], "error": "", "textLen": 0, "anchors": 0}
     # 사이트 잠금을 먼저 잡고 나서 전역 자리를 잡는다. 반대 순서면 같은 사이트(사람인 284곳) 대기자들이
     # 전역 자리를 모두 차지한 채 잠금을 기다려서, 다른 사이트까지 사람인 속도로 직렬화된다.
-    async with host_locks.setdefault(host, asyncio.Lock()), gsem:
-        t0 = time.monotonic()
-        if run.get("deadline") and t0 > run["deadline"]:
-            res["error"] = "SKIPPED 전체 실행 시간 한도(max_run_minutes) 도달"
-            log_source(res, t0)
-            return res
-        blocked = run.setdefault("blocked", {})
-        if blocked.get(host, 0) >= int(run.get("block_limit", 3)):
-            res["error"] = f"SKIPPED 같은 사이트 BLOCKED {blocked[host]}회 → 이번 실행에서 건너뜀"
-            log_source(res, t0)
-            return res
-        try:
-            # 모음 검색(검색어 14개 × 여러 쪽)은 소스별 timeout_sec 로 더 길게
-            await asyncio.wait_for(_fetch_page(ctx, src, pattern, timeout, debug, host in static_hosts, block_re, res),
-                                   timeout=float(src.get("timeout_sec") or run.get("source_timeout", 150)))
-        except asyncio.TimeoutError:
-            res.update(ok=False, items=[], error=f"TIMEOUT 사이트당 {run.get('source_timeout', 150)}초 초과")
-        if res["error"].startswith("BLOCKED"):
-            blocked[host] = blocked.get(host, 0) + 1
-        await asyncio.sleep(gap.get(host, gap["default"]) + random.uniform(0, 1.5))
+    async with host_locks.setdefault(host, asyncio.Lock()):
+        # 같은 사이트가 연달아 TIMEOUT·접속 오류면 잠시 쉬었다가 한 번만 떠 본다. 2026-10-12 아침: 사람인이 응답을 안 줘
+        # 회사 페이지마다 150초씩 기다리다 전체 한도에 걸려 사람인 0/314 (다른 사이트까지 SKIPPED)
+        fails, cools = run.setdefault("fails", {}), run.setdefault("cools", {})
+        limit = int(run.get("fail_limit", 3))
+        if fails.get(host, 0) >= limit:
+            if cools.get(host, 0) >= int(run.get("max_cools", 2)):
+                res["error"] = f"SKIPPED 같은 사이트 연속 실패 {fails[host]}회(쉬었다 다시 해도 실패) → 이번 실행에서 건너뜀"
+                log_source(res, time.monotonic())
+                return res
+            cools[host] = cools.get(host, 0) + 1
+            wait = float(run.get("cool_sec", 600))
+            print(f"  [{dt.datetime.now(KST):%H:%M:%S}] … {host} 연속 실패 {fails[host]}회 → {wait:.0f}초 쉬고 다시 시도 ({cools[host]}번째)", flush=True)
+            await asyncio.sleep(wait)          # 전역 자리(gsem)를 잡기 전에 쉰다 → 다른 사이트는 계속 돈다
+            fails[host] = limit - 1            # 쉰 뒤 한 번 더 실패하면 다음 쉼(또는 건너뜀)
+        async with gsem:
+            t0 = time.monotonic()
+            if run.get("deadline") and t0 > run["deadline"]:
+                res["error"] = "SKIPPED 전체 실행 시간 한도(max_run_minutes) 도달"
+                log_source(res, t0)
+                return res
+            blocked = run.setdefault("blocked", {})
+            if blocked.get(host, 0) >= int(run.get("block_limit", 3)):
+                res["error"] = f"SKIPPED 같은 사이트 BLOCKED {blocked[host]}회 → 이번 실행에서 건너뜀"
+                log_source(res, t0)
+                return res
+            try:
+                # 모음 검색(검색어 14개 × 여러 쪽)은 소스별 timeout_sec 로 더 길게
+                await asyncio.wait_for(_fetch_page(ctx, src, pattern, timeout, debug, host in static_hosts, block_re, res),
+                                       timeout=float(src.get("timeout_sec") or run.get("source_timeout", 150)))
+            except asyncio.TimeoutError:
+                res.update(ok=False, items=[], error=f"TIMEOUT 사이트당 {run.get('source_timeout', 150)}초 초과")
+            if res["error"].startswith("BLOCKED"):
+                blocked[host] = blocked.get(host, 0) + 1
+            # 연속 실패는 '사이트가 응답을 안 하는' 종류만 센다(404 같은 페이지 하나의 문제는 제외)
+            if res["ok"]:
+                fails[host] = 0
+            elif res["error"].startswith("TIMEOUT") or any(k in res["error"] for k in RETRY_ERRORS):
+                fails[host] = fails.get(host, 0) + 1
+            await asyncio.sleep(gap.get(host, gap["default"]) + random.uniform(0, 1.5))
     log_source(res, t0)
     return res
 

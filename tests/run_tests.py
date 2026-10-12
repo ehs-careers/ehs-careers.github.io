@@ -367,8 +367,42 @@ def check_sections():
             for t, c, rk, w in SECTION_CASES if R.sections({"title": t, "company": c}, st, rk) != w]
 
 
+def check_breaker():
+    """같은 사이트가 연달아 응답 없음 → 쉬었다 두 번까지만 떠 보고 나머지는 건너뛴다 (2026-10-12 아침: 사람인 무응답으로 150초×수십 곳 → 전체 한도 초과)"""
+    import asyncio
+    import job_radar as jr
+    calls, real = [], jr._fetch_page
+
+    async def fake(ctx, src, pattern, timeout, debug, static, block_re, res):
+        calls.append(src["url"])
+        if "dead" in src["url"]:
+            await asyncio.sleep(1)
+        else:
+            res.update(ok=True)
+
+    async def go():
+        srcs = [{"name": f"d{i}", "type": "company", "url": f"https://dead.example/{i}"} for i in range(12)] +                [{"name": f"o{i}", "type": "company", "url": f"https://ok.example/{i}"} for i in range(3)]
+        run = {"source_timeout": 0.05, "cool_sec": 0.05}
+        sem, locks = asyncio.Semaphore(4), {}
+        return await asyncio.gather(*[jr.fetch_source(None, s, "", 1, False, sem, locks, {"default": 0}, (), None, run) for s in srcs])
+    jr._fetch_page = fake
+    try:
+        import contextlib, io
+        with contextlib.redirect_stdout(io.StringIO()):
+            out = asyncio.run(go())
+    finally:
+        jr._fetch_page = real
+    dead = sum("dead" in u for u in calls)
+    bad = []
+    if dead > 5:
+        bad.append(f"연속 실패 차단기: 죽은 사이트를 {dead}번 시도(기대 5번 이하)")
+    if sum(r["ok"] for r in out) != 3:
+        bad.append("연속 실패 차단기: 다른 사이트까지 막힘")
+    return bad
+
+
 def main():
-    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups() + check_api_field() + check_aggregator_block()
+    bad_co = check_company() + check_exp() + check_duty() + check_posting() + check_parsing() + check_merge() + check_sections() + check_tiers() + check_dups() + check_api_field() + check_aggregator_block() + check_breaker()
     for b in bad_co: print("  ✗ 회사명 판정:", b)
     tmp = Path(tempfile.mkdtemp(prefix="jobradar_test_"))
     src = [
