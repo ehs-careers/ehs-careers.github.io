@@ -9949,5 +9949,115 @@
 "커리어위즈": {
 "csn": "STQ2clFrdUtFb292cWZjcG9ma2pBUT09",
 "fetched": "2026-10-13"
+},
+"쿠팡풀필먼트서비스coupangfulfillmentservicesltd": {
+"missing": true,
+"fetched": "2026-10-13"
+},
+"에이치디현대마린솔루션테크": {
+"csn": "cXN2bDFoci96OW9zcDgxWEJYZTAwUT09",
+"employees": 142,
+"salary_year": 2025,
+"avg_salary": 8602,
+"salary_min": 4201,
+"salary_max": 9768,
+"salary_reliability": "낮음",
+"fetched": "2026-10-13"
+},
+"sk하이닉스": {
+"csn": "bVBKSnUydnZWajRpRWJicGd4dE5sdz09",
+"form": "1000대기업, 대기업, 코스피, 외부감사법인, 수출입 기업",
+"employees": 257,
+"salary_year": 2025,
+"avg_salary": 12063,
+"salary_min": 5381,
+"salary_max": 12466,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-13"
+},
+"바이오톡스텍": {
+"csn": "b2gyOU9VdGhmMXRaalhWZGZvVUs2dz09",
+"employees": 219,
+"salary_year": 2025,
+"avg_salary": 4674,
+"salary_min": 3117,
+"salary_max": 7659,
+"salary_reliability": "높음",
+"fetched": "2026-10-13"
+},
+"에스케이에코플랜트": {
+"csn": "WG1QTDJiZ0p2c3Y2T212c0s5NE9OUT09",
+"form": "1000대기업, 대기업, 주식회사, 외부감사법인",
+"employees": 3895,
+"salary_year": 2025,
+"avg_salary": 9628,
+"salary_min": 4656,
+"salary_max": 11042,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-13"
+},
+"농협네트웍스": {
+"csn": "NmVFU2xSNnRDeEFDZ0xuTy9pd2ZPdz09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 269,
+"salary_year": 2025,
+"avg_salary": 9697,
+"salary_min": 5084,
+"salary_max": 10242,
+"salary_reliability": "보통",
+"fetched": "2026-10-13"
+},
+"포스코지와이알테크": {
+"csn": "WUtHa1NPb2cya21PNlFENi9DZTlMQT09",
+"salary_year": 2025,
+"avg_salary": 9125,
+"salary_min": 4307,
+"salary_max": 9911,
+"salary_reliability": "낮음",
+"fetched": "2026-10-13"
+},
+"한신공영": {
+"csn": "Q0xBRmxLYkU2YU9qQ2dYa2VNWjcvUT09",
+"form": "중견기업, 코스피, 외부감사법인",
+"employees": 944,
+"salary_year": 2025,
+"avg_salary": 8599,
+"salary_min": 4016,
+"salary_max": 8866,
+"salary_reliability": "높음",
+"fetched": "2026-10-13"
+},
+"대륭개발": {
+"csn": "SnhuWXhUQUYxWmdHUGtJK1FEUlJsZz09",
+"form": "중견기업, 주식회사, 외부감사법인",
+"employees": 13,
+"salary_year": 2025,
+"avg_salary": 4451,
+"salary_min": 2921,
+"salary_max": 6100,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-13"
+},
+"웰크론한텍": {
+"csn": "NjNtV0VUOVlYa2pBMThsb1RtOFRGUT09",
+"form": "중견기업, 코스닥, 주식회사, 외부감사법인, 병역특례 인증업체, 수출입 기업",
+"employees": 185,
+"salary_year": 2025,
+"avg_salary": 7186,
+"salary_min": 3772,
+"salary_max": 8331,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-13"
+},
+"에스티엠": {
+"csn": "MUl1THl3ZGtTdW5WOHNQM0cydktUdz09",
+"form": "대기업, 주식회사, 수출입 기업",
+"employees": 241,
+"salary_year": 2025,
+"avg_salary": 8654,
+"salary_min": 4427,
+"salary_max": 10832,
+"salary_reliability": "매우낮음",
+"fetched": "2026-10-13"
 }
 }
