@@ -9903,5 +9903,51 @@
 "salary_max": 9144,
 "salary_reliability": "높음",
 "fetched": "2026-10-12"
+},
+"덕산": {
+"csn": "cjRhL2xqQUJjMTMrVmg1L1BPWmNNQT09",
+"form": "스타트업, 중소기업, 주식회사, 외부감사법인, 연구소, 수출입 기업",
+"employees": 68,
+"salary_year": 2025,
+"avg_salary": 7283,
+"salary_min": 3860,
+"salary_max": 7621,
+"salary_reliability": "보통",
+"fetched": "2026-10-13"
+},
+"삼일씨엔에스": {
+"csn": "c21oUTBZUUM2d3czVmNuTjBwc0dOQT09",
+"form": "1000대기업, 대기업, 코스피, 주식회사, 외부감사법인",
+"employees": 54,
+"salary_year": 2025,
+"avg_salary": 5541,
+"salary_min": 3578,
+"salary_max": 7081,
+"salary_reliability": "높음",
+"fetched": "2026-10-13"
+},
+"제일종합관리서비스": {
+"csn": "WUwvTVp6VWhqRjF6M0lCRndwQUltZz09",
+"form": "대기업, 주식회사, 외부감사법인",
+"employees": 175,
+"salary_year": 2025,
+"avg_salary": 3813,
+"salary_min": 2712,
+"salary_max": 4731,
+"salary_reliability": "낮음",
+"fetched": "2026-10-13"
+},
+"파워에이치알": {
+"csn": "Si9JemFLK3NDLzJUVFFLb09uRy9YQT09",
+"fetched": "2026-10-13"
+},
+"국제커리어센터": {
+"csn": "Ukx5ZEpqVGxzTlQwbHRtdXRYTlpoZz09",
+"employees": 8,
+"fetched": "2026-10-13"
+},
+"커리어위즈": {
+"csn": "STQ2clFrdUtFb292cWZjcG9ma2pBUT09",
+"fetched": "2026-10-13"
 }
 }
