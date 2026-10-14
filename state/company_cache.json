@@ -10080,5 +10080,63 @@
 "salary_max": 7101,
 "salary_reliability": "매우높음",
 "fetched": "2026-10-14"
+},
+"풍기산업": {
+"csn": "UENVREV2K3ZqRG53endTR2tITEczQT09",
+"form": "1000대기업, 중견기업, 외부감사법인",
+"employees": 86,
+"salary_year": 2025,
+"avg_salary": 7116,
+"salary_min": 3742,
+"salary_max": 7418,
+"salary_reliability": "높음",
+"fetched": "2026-10-14"
+},
+"삼기": {
+"csn": "TmdmelE5d3ArSmRZUjB4SE5VZUFBUT09",
+"form": "1000대기업, 중견기업, 코스닥, 외부감사법인",
+"employees": 357,
+"salary_year": 2025,
+"avg_salary": 6593,
+"salary_min": 4097,
+"salary_max": 7962,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-14"
+},
+"스위스포트코리아": {
+"csn": "cGxjM3VITzdxVERDL3hLTTJLKy9hdz09",
+"form": "중소기업, 외국인 투자기업, 주식회사",
+"employees": 999,
+"salary_year": 2025,
+"avg_salary": 5736,
+"salary_min": 3189,
+"salary_max": 6621,
+"salary_reliability": "매우높음",
+"fetched": "2026-10-14"
+},
+"패스트파이브": {
+"csn": "SVgzYklXc3BaOVRZaFhHcGxZNC9JZz09",
+"form": "중견기업, 주식회사, 외부감사법인",
+"employees": 336,
+"salary_year": 2025,
+"avg_salary": 5951,
+"salary_min": 3290,
+"salary_max": 7477,
+"salary_reliability": "높음",
+"fetched": "2026-10-14"
+},
+"듀어코리아": {
+"csn": "bzdVV1FOb0plUllUaTc5bHN5azZkQT09",
+"employees": 62,
+"fetched": "2026-10-14"
+},
+"hl만도": {
+"missing": true,
+"fetched": "2026-10-14"
+},
+"피플뱅크코리아": {
+"csn": "RncrRER1SG9mb3hJUVpLOHFZTEN5dz09",
+"form": "중소기업, 주식회사, 사단법인",
+"fetched": "2026-10-14"
 }
 }
